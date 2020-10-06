@@ -40,13 +40,15 @@
 
 .leftside{
   background-color: aqua;
-  width: 180px;
+  width: 100px;
 }
 
 .center{
   flex: 1;
+  justify-content: center;
+  align-items: center;
   font-size: 18px;
-  margin-top: 100px;
+  margin: 100px;
 }
 
 .main-button {
@@ -59,12 +61,13 @@
 }
 
 .rightside{
+  align-items: center;
   background-color: aqua;
   width: 180px; 
-  font-size: 12px;
+  font-size: 14px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .body {
     flex-direction: column;
   }
