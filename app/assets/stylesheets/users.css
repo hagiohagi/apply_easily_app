@@ -15,6 +15,7 @@
 
 .title {
   margin: 20px;
+  font-size: 20px;
 }
 
 .admin_login {
@@ -39,7 +40,7 @@
 }
 
 .leftside{
-  background-color: aqua;
+  background-color: whitesmoke;
   width: 100px;
 }
 
@@ -62,9 +63,14 @@
 
 .rightside{
   align-items: center;
-  background-color: aqua;
-  width: 180px; 
-  font-size: 14px;
+  background-color: whitesmoke;
+  width: 220px; 
+  
+}
+
+.place-info{
+  padding: 5px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 1000px) {

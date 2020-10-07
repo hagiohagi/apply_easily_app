@@ -38,7 +38,7 @@ Things you may want to cover:
 ### Association
 has_one :information
 
-## admin テーブル
+## owner テーブル
 
 | Column    | Type   | Options     |
 | ------    | ------ | ----------- |

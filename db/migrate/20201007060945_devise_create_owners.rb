@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class DeviseCreateAdmins < ActiveRecord::Migration[6.0]
+class DeviseCreateOwners < ActiveRecord::Migration[6.0]
   def change
-    create_table :admins do |t|
+    create_table :owners do |t|
       ## Database authenticatable
-      t.string :firstname,          null: false 
-      t.string :lastname,           null: false 
+      t.string :firstname,          null: false
+      t.string :lastname,           null: false
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
@@ -38,9 +38,9 @@ class DeviseCreateAdmins < ActiveRecord::Migration[6.0]
       t.timestamps null: false
     end
 
-    add_index :admins, :email,                unique: true
-    add_index :admins, :reset_password_token, unique: true
-    # add_index :admins, :confirmation_token,   unique: true
-    # add_index :admins, :unlock_token,         unique: true
+    add_index :owners, :email,                unique: true
+    add_index :owners, :reset_password_token, unique: true
+    # add_index :owners, :confirmation_token,   unique: true
+    # add_index :owners, :unlock_token,         unique: true
   end
 end
