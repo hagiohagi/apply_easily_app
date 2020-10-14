@@ -5,7 +5,11 @@
 
   <div class="admin_login">
     <div class="header-button">
-    <a href="#" class="link">管理人用リンク</a>
+    <% if owner_signed_in? %>
+    <%= link_to 'ログアウト',  destroy_owner_session_path %>
+    <% else %>
+    <%= link_to '管理人用リンク',  new_owner_session_path %>
+    <% end %>
     </div>
   </div>
 </div>

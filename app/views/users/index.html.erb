@@ -10,22 +10,27 @@
 
       <div class="center">
       <h1><b>トップページ</b></h1>
-      
+
+    <% if owner_signed_in? %>
+      <p>管理人用ページ、鋭意製作中！</p>
+    <% else %>
       <p>当店の募集要項にご興味をお持ちいただきありがとうございます。</p>
       <p>下記の「エントリー」ボタンより、ご記入をお願い致します。</p>
 
       <div class="main-button">
-      <a href="#" class="link">エントリー</a>
-        </div>
+      <%= link_to "エントリー", url: "#"%>
+      </div>
+      <% end %>
       </div>
 
       <div class="rightside">
+      <div class="place-info"> 
       <p>和風居酒屋 はぎ笑</p>
       <p></p>
       <p>187-XXXX</p>
       <p>東京都小平市XX町OO番地</p>
       <p>TEL 042-000-0000</p>
-
+      </div>
       </div>
     </div>
   </div>

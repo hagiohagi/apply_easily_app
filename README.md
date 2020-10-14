@@ -26,19 +26,10 @@ Things you may want to cover:
 
 #テーブル
 
-## users テーブル
-
-| Column    | Type   | Options     |
-| --------- | ------ | ----------- |
-| firstname | string | null: false |
-| lastname  | string | null: false |
-| email     | string | null: false |
-| password  | string | null: false |
-
 ### Association
 has_one :information
 
-## admin テーブル
+## owner テーブル
 
 | Column    | Type   | Options     |
 | ------    | ------ | ----------- |
@@ -47,18 +38,16 @@ has_one :information
 | email     | string | null: false |
 | password  | string | null: false |
 
-## informations テーブル
+## users テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| firstname        | references | null: false, foreign_key: true |
-| lastname         | references | null: false, foreign_key: true |
-| email            | references | null: false, foreign_key: true |
+| firstname        | string     | null: false                    |
+| lastname         | string     | null: false                    |
 | firstname_kana   | string     | null: false                    |
 | lastname_kana    | string     | null: false                    |
-| sex              | boolean    | null: false                    |
-| birth_year       | integer    | null: false                    |
-| birth_month      | integer    | null: false                    |
+| email            | string     | null: false                    |
+| sex              | text       | null: false                    |
 | birth_day        | integer    | null: false                    |
 | phone_number     | integer    | null: false                    |
 | image            | string     | null: false                    |
@@ -76,13 +65,16 @@ has_one :information
 | qualification_1  | string     |                                |
 | qualification_2  | string     |                                |
 | qualification_3  | string     |                                |
-| q_year_1         | string     |                                |
-| q_year_2         | string     |                                |
-| q_year_3         | string     |                                |
+| q_year_1         | integer    |                                |
+| q_year_2         | integer    |                                |
+| q_year_3         | integer    |                                |
 | station          | string     |                                |
-| spouse           | boolean    | null: false                    |
-| uniform_size     | integer    | null:false                     |
-| shoes_size       | integer    | null:false                     |
+| spouse           | text       | null: false                    |
+
+has_one_attached :image
+
+### attendanceテーブル
+
 | sun_parttime_in  | integer    |                                |
 | sun_parttime_out | integer    |                                |
 | mon_parttime_in  | integer    |                                |
@@ -96,10 +88,11 @@ has_one :information
 | fry_parttime_in  | integer    |                                |
 | fry_parttime_out | integer    |                                |
 | sat_parttime_in  | integer    |                                |
-| sat_parttime_out | integer    |                                | 
+| sat_parttime_out | integer    |                                |
+
+
+### questionテーブル
+
 | pr_1             | string     |                                |
 | pr_2             | string     |                                |
 | pr_2             | string     |                                |
-
-### Association
-belongs_to :user
