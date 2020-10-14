@@ -39,11 +39,27 @@ RSpec.describe 'ユーザー新規登録', type: :system do
   context 'ユーザー新規登録ができないとき' do
     it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる' do
       # トップページに移動する
+      visit root_path
       # トップページにサインアップページへ遷移するボタンがあることを確認する
-      # 新規登録ページへ移動する
+      expect(page).to have_content('管理人用リンク')
+       # ログインページへ移動する
+       visit new_owner_session_path
+       # 新規登録ページに遷移するボタンがあることを確認する
+       expect(page).to have_content('新規登録')
+       # 新規登録ページへ移動する
+       visit new_owner_registration_path
       # ユーザー情報を入力する
+      fill_in 'registration_firstname', with: ""
+      fill_in 'registration_lastname', with: ""
+      fill_in 'registration_email', with: ""
+      fill_in 'registration_password', with: ""
+      fill_in 'registration_password_confirmation', with: ""
       # サインアップボタンを押してもユーザーモデルのカウントは上がらないことを確認する
+      expect{
+        find('input[name="commit"]').click
+      }.to change { Owner.count }.by(0)
       # 新規登録ページへ戻されることを確認する
+      expect(current_path).to eq "/owners"
     end
   end
 end
