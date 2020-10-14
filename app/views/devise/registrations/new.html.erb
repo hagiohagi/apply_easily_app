@@ -12,24 +12,22 @@
       <%= render "devise/shared/links"%>
     </div>
     <div class='account-page__inner--right user-form'>
-      <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages!%>
-
         <div class='field'>
           <div class='field-label'>
             <%= f.label "姓"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :firstname, autofocus: true%>
+            <%= f.text_field :firstname, autofocus: true, id: 'registration_firstname'%>
           </div>
         </div>
-
         <div class='field'>
           <div class='field-label'>
             <%= f.label "名"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :lastname, autofocus: true%>
+            <%= f.text_field :lastname, autofocus: true, id: 'registration_lastname'%>
           </div>
         </div>
 
@@ -38,7 +36,7 @@
             <%= f.label "メールアドレス"%>
           </div>
           <div class='field-input'>
-            <%= f.email_field :email%>
+            <%= f.email_field :email, id: 'registration_email'%>
           </div>
         </div>
 
@@ -46,10 +44,10 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label "パスワード"%>
-            <i>(英数字8文字以上)</i>
+            <i>(英数字両方含む8文字以上)</i>
           </div>
           <div class='field-input'>
-            <%= f.password_field :password, autocomplete: "off"%>
+            <%= f.password_field :password, autocomplete: "off", id: 'registration_password'%>
           </div>
         </div>
 
@@ -59,12 +57,12 @@
             <i>(確認用)</i>
           </div>
           <div class='field-input'>
-            <%= f.password_field :password_confirmation, autocomplete: "off"%>
+            <%= f.password_field :password_confirmation, autocomplete: "off", id: 'registration_password_confirmation' %>
           </div>
         </div>
 
         <div class='actions'>
-          <%= f.submit "登録", class: 'btn'%>
+          <%= f.submit "登録", name:"commit", class: 'btn' %>
         </div>
       </div>
     <% end %>
