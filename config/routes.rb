@@ -5,8 +5,17 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   devise_for :owners
-  resource :infomations
-  root to: "informations#index"
+
+  resource :infomations do
+    ccollection do
+      get 'step1'
+      get 'step2'
+      get 'step3' # ここで、入力の全てが終了する
+      get 'done' # 登録完了後のページ
+    end
+
+    root to: "informations#index"
+  end
 
 
 end
