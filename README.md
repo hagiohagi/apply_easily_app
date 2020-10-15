@@ -36,6 +36,7 @@ Things you may want to cover:
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
+| image            | string     | null: false                    |
 | firstname        | string     | null: false                    |
 | lastname         | string     | null: false                    |
 | firstname_kana   | string     | null: false                    |
@@ -46,7 +47,7 @@ Things you may want to cover:
 | birthdate_month  | integer    | null: false                    |
 | birthdate_day    | integer    | null: false                    |
 | phone_number     | integer    | null: false                    |
-| image            | string     | null: false                    |
+
 
 | postal_code      | integer    | null: false                    |
 | prefecture       | integer    | null: false                    |

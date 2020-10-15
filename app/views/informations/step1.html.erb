@@ -1,0 +1,96 @@
+
+<%= form_for @user, url: step2_informations_path, method: :get do |f| %>
+
+          <div image_tag message.image.variant(resize:`500x500`), class="click-upload" if information.image.attached?>
+            <p>
+              クリックしてファイルをアップロード
+            </p>
+              <%= f.file_field :image, id:"item-image" %>
+          </div>
+          <div class='field-label'>
+            <%= f.label "姓"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :firstname, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "名"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :lastname, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "姓(ふりがな)"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :firstname_kana, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "名(ふりがな)"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :lastname_kana, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "メールアドレス"%>
+          </div>
+          <div class='field-input'>
+            <%= f.email_field :email%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "性別"%>
+          </div>
+          <div class='field-input'>
+            <%= f.radio_button :sex, "男性" %>
+            <%= f.label :sex, "男性", {value: "男性", style: "display: inline-block;"} %>
+            <%= f.radio_button :sex, "女性" %>
+            <%= f.label :sex, "女性", {value: "女性", style: "display: inline-block;"} %>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "パスワード"%>
+            <i>(英数字8文字以上)</i>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password, autocomplete: "off"%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "パスワード"%>
+            <i>(確認用)</i>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password_confirmation, autocomplete: "off"%>
+          </div>
+
+          <div class='field-label'>
+          </div>
+          <div class='field-input'>
+          <%= raw sprintf(
+                  f.date_select(
+                    :birth_day,
+                    # class:'select-birth',
+                    # id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1940,
+                    end_year: (Time.now.year - 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "連絡先(電話番号)"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :phone_number %>
+          </div>
+
+
+  <%= f.submit 'Continue' %>
+<% end %>

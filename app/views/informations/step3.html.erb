@@ -1,0 +1,114 @@
+<%= form_for @user, url: done_informations_path, method: :post do |f| %>
+    
+          <div class='field-label'>
+            <%= f.label "高校名"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :highschool, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "入学年度"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :h_admission, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "卒業年度"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :h_graduate, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "大学名"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :univercity, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "入学年度"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :u_admission, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "卒業年度"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :u_graduate, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "職歴"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :job_experience, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "資格(1つ目)"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :qualification_1, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "取得年度(1つ目)"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :q_year_1, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "資格(2つ目)"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :qualification_2, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "取得年度(2つ目)"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :q_year_2, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "資格(3つ目)"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :qualification_3, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "取得年度(3つ目)"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :q_year_3, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "最寄り駅"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :station, autofocus: true%>
+          </div>
+
+          <div class='field-label'>
+            <%= f.label "配偶者の有無"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :spouse, autofocus: true%>
+          </div>
+
+      <%= f.submit 'Continue' %>
+<% end %>
+
+
+
+
+
