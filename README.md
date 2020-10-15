@@ -42,7 +42,9 @@ Things you may want to cover:
 | lastname_kana    | string     | null: false                    |
 | email            | string     | null: false                    |
 | sex              | text       | null: false                    |
-| birth_day        | integer    | null: false                    |
+| birthdate_year   | integer    | null: false                    |
+| birthdate_month  | integer    | null: false                    |
+| birthdate_day    | integer    | null: false                    |
 | phone_number     | integer    | null: false                    |
 | image            | string     | null: false                    |
 
