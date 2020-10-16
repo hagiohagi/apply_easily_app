@@ -9,28 +9,28 @@
       </div>
 
       <div class="center">
-      <h1><b>トップページ</b></h1>
-
-    <% if owner_signed_in? %>
-      <p>管理人用ページ、鋭意製作中！</p>
-    <% else %>
-      <p>当店の募集要項にご興味をお持ちいただきありがとうございます。</p>
-      <p>下記の「エントリー」ボタンより、ご記入をお願い致します。</p>
-
+      <% if owner_signed_in? %>
+      <h1>管理人用ページ、鋭意製作中！</h1>
+      <% else %>
+        <div class="welcome-announce">
+        <p>当店の募集要項にご興味をお持ちいただきありがとうございます。</p>
+        <p>下記の「エントリー」ボタンより、ご記入をお願い致します。</p>
+        </div>
+        <div class="welcome-announce">
+        <p>※エントリーするためには当サイトでユーザー登録する必要がございます。</p>
+        <p>　ユーザー登録がまだの方は以下より登録をお願い致します。</p>
+          <div class="little-button">
+            <%= link_to 'ユーザー登録', step1_informations_path %>
+          </div>
+        </div>
       <div class="main-button">
-      <%= link_to "エントリー", url: "#"%>
-      </div>
+      <a href="#" class="link">エントリー</a>
+        </div>
       <% end %>
       </div>
 
       <div class="rightside">
-      <div class="place-info"> 
-      <p>和風居酒屋 はぎ笑</p>
-      <p></p>
-      <p>187-XXXX</p>
-      <p>東京都小平市XX町OO番地</p>
-      <p>TEL 042-000-0000</p>
-      </div>
+       <%= render "shared/rightside" %>
       </div>
     </div>
   </div>

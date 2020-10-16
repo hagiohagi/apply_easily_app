@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    passwords:     'users/passwords',
-    registrations: 'users/registrations'
-  }
-  devise_for :owners
 
-  resource :infomations do
+  resource :informations do
     collection do
       get 'step1'
       get 'step2'
@@ -14,8 +8,17 @@ Rails.application.routes.draw do
       get 'done' # 登録完了後のページ
     end
 
-    root to: "informations#index"
-  end
+    
 
+  end
+  
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
+  devise_for :owners
+
+  root to: 'informations#index'
 
 end

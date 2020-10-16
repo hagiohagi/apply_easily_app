@@ -1,12 +1,11 @@
-
 <%= form_for @user, url: step2_informations_path, method: :get do |f| %>
-
           <div image_tag message.image.variant(resize:`500x500`), class="click-upload" if information.image.attached?>
-            <p>
-              クリックしてファイルをアップロード
-            </p>
-              <%= f.file_field :image, id:"item-image" %>
-          </div>
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+          
           <div class='field-label'>
             <%= f.label "姓"%>
           </div>
