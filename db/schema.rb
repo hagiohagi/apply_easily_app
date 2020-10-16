@@ -27,17 +27,15 @@ ActiveRecord::Schema.define(version: 2020_10_14_105907) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.string "firstname_kana", null: false
     t.string "lastname_kana", null: false
     t.string "email", null: false
     t.string "sex", null: false
-    t.integer "birthdate_year", null: false
-    t.integer "birthdate_month", null: false
-    t.integer "birthdate_day", null: false
-    t.integer "phone_number", null: false
-    t.string "image", null: false
+    t.date "birth_day", null: false
+    t.string "phone_number", null: false
     t.integer "postal_code", null: false
     t.integer "prefecture", null: false
     t.string "city", null: false

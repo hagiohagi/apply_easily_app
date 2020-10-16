@@ -1,0 +1,12 @@
+.field-lebel{
+  padding: 10px 0;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.field-input{
+  width: 100%;
+  padding: 10px;
+  letter-spacing: 1px;
+}
