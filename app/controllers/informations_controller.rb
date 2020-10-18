@@ -18,7 +18,7 @@ class InformationsController < ApplicationController
 
   def step3
     # step2で入力した値をsessionに保存
-    @user = User.new # 新規インスタンス作成
+    @user = User.new(user_params) # 新規インスタンス作成
   end
 
   def create
@@ -54,6 +54,7 @@ class InformationsController < ApplicationController
 
 
   def save_to_session
+
     session[:image] = user_params[:image]
     session[:firstname] = user_params[:firstname]
     session[:lastname] = user_params[:lastname]
@@ -63,7 +64,10 @@ class InformationsController < ApplicationController
     session[:sex] = user_params[:sex]
     session[:password] = user_params[:password]
     session[:password_confirmation] = user_params[:password_confirmation]
-    session[:birth_day] = user_params[:birth_day]
+    # session["birth_day(1i)"] = params[:user]["birth_day(1i)"]
+    # session["birth_day(2i)"] = params[:user]["birth_day(2i)"]
+    # session["birth_day(3i)"] = params[:user]["birth_day(3i)"]
+    session[:birth_day] = Date.new(params[:user]["birth_day(1i)"]&.to_i, params[:user]["birth_day(2i)"]&.to_i, params[:user]["birth_day(3i)"]&.to_i)
     session[:phone_number] = user_params[:phone_number]
     # バリデーションをかけるため、仮でインスタンスに入力値を入れる
     
@@ -101,6 +105,7 @@ class InformationsController < ApplicationController
       spouse: "yes"
     )
     # インスタンスにバリデーションをかけ、通らなければ1step目のページを再度表示する
+    binding.pry
     render '/informations/step1' unless @user.valid?(:save_to_session)
   end
 
@@ -131,10 +136,10 @@ class InformationsController < ApplicationController
 
 
   private
-
   
   # 許可するキーを設定します
   def user_params
+
     params.require(:user).permit(
       :firstname,
       :lastname,

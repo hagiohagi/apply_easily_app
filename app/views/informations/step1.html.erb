@@ -73,7 +73,7 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label "パスワード"%>
-            <i>(英数字8文字以上)</i>
+            <i>(英字数字それぞれ必ず1字以上含む・8文字以上)</i>
           </div>
           <div class='field-input'>
             <%= f.password_field :password, autocomplete: "off"%>
@@ -105,7 +105,7 @@
 
         <div class='field'>
           <div class='field-label'>
-            <%= f.label "連絡先(電話番号)"%>
+            <%= f.label "電話番号(ハイフンなし)"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :phone_number %>
