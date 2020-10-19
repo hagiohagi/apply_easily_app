@@ -1,0 +1,36 @@
+
+  <div class="wrapper">
+    <div class="header">
+    <%= render "shared/header" %>
+    </div>
+    <div class="body">
+      <div class="leftside">
+      
+      </div>
+
+      <div class="center">
+      <% if owner_signed_in? %>
+      <h1>管理人用ページ、鋭意製作中！</h1>
+      <% else %>
+        <div class="welcome-announce">
+        <p>当店の募集要項にご興味をお持ちいただきありがとうございます。</p>
+        <p>下記の「エントリー」ボタンより、ご記入をお願い致します。</p>
+        </div>
+        <div class="welcome-announce">
+        <p>※エントリーするためには当サイトでユーザー登録する必要がございます。</p>
+        <p>　ユーザー登録がまだの方は以下より登録をお願い致します。</p>
+          <div class="little-button">
+            <%= link_to 'ユーザー登録', step1_informations_path %>
+          </div>
+        </div>
+      <div class="main-button">
+      <a href="#" class="link">エントリー</a>
+        </div>
+      <% end %>
+      </div>
+
+      <div class="rightside">
+       <%= render "shared/rightside" %>
+      </div>
+    </div>
+  </div>

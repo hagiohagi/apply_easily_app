@@ -1,0 +1,165 @@
+<div class="wrapper">
+
+  <div class="header">
+    <div class="title">
+      応募者エントリーページ
+    </div>
+  </div>
+  <div class="body">
+    <div class="leftside">
+    </div>
+    <div class="center">
+      <div class="user-confirmation">
+      <%= form_for(@user, url: {controller: 'informations', action: 'create' }) do |f| %>
+        <h1><b>以上の内容でお間違いないですか？</b></h1>
+
+    <table class="user-information-box">
+      <tbody>
+        <tr>
+          <th class="detail-user">氏名
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.firstname %><%= @user.lastname %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">氏名(ふりがな)
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.firstname_kana %><%= @user.lastname_kana %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">メールアドレス
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">性別
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.sex %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">パスワード
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.password %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">生年月日
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.birth_day %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">電話番号
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.phone_number %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">郵便番号
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.postal_code %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">都道府県
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.prefecture.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">市町村・番地
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.city %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">建物名</th>
+          <td class="detail-value"><%= @user.building %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">高校名
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.highschool %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">入学年度
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.h_admission %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">卒業年度</th>
+          <td class="detail-value"><%= @user.h_graduate %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">大学名</th>
+          <td class="detail-value"><%= @user.univercity %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">入学年度</th>
+          <td class="detail-value"><%= @user.u_admission %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">卒業年度</th>
+          <td class="detail-value"><%= @user.u_graduate %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">職歴</th>
+          <td class="detail-value"><%= @user.job_experience %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">資格(1つ目)</th>
+          <td class="detail-value"><%= @user.qualification_1 %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">取得年度(1つ目)</th>
+          <td class="detail-value"><%= @user.q_year_1 %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">資格(2つ目)</th>
+          <td class="detail-value"><%= @user.qualification_2 %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">取得年度(2つ目)</th>
+          <td class="detail-value"><%= @user.q_year_2 %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">資格(3つ目)</th>
+          <td class="detail-value"><%= @user.qualification_3 %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">取得年度(3つ目)</th>
+          <td class="detail-value"><%= @user.q_year_3 %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">最寄り駅
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @user.station %></td>
+        </tr>
+        <tr>
+          <th class="detail-user">配偶者の有無
+            <span class="indispensable">必須</span>
+            </th>
+          <td class="detail-value"><%= @user.spouse %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class='submit-btn'>
+      <%= f.submit "修正する", name: :back, class:'btn' %>
+      <%= f.submit "登録する", class:'btn' %>
+    </div>
+<% end %>
+
+        
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

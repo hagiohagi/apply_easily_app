@@ -23,12 +23,6 @@ Things you may want to cover:
 
 * ...
 
-
-#テーブル
-
-### Association
-has_one :information
-
 ## owner テーブル
 
 | Column    | Type   | Options     |
@@ -42,19 +36,22 @@ has_one :information
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
+| image            | string     | null: false                    |
 | firstname        | string     | null: false                    |
 | lastname         | string     | null: false                    |
 | firstname_kana   | string     | null: false                    |
 | lastname_kana    | string     | null: false                    |
 | email            | string     | null: false                    |
 | sex              | text       | null: false                    |
-| birth_day        | integer    | null: false                    |
-| phone_number     | integer    | null: false                    |
-| image            | string     | null: false                    |
+| birth_day        | date       | null: false                    |
+| phone_number     | string     | null: false                    |
+
+
 | postal_code      | integer    | null: false                    |
-| prefecture       | integer    | null: false                    |
+| prefecture_id       | integer    | null: false                    |
 | city             | string     | null: false                    |
 | building         | string     |                                |
+
 | highschool       | string     | null: false                    |
 | h_admission      | integer    | null: false                    |
 | h_graduate       | integer    | null: false                    |
@@ -71,10 +68,6 @@ has_one :information
 | station          | string     |                                |
 | spouse           | text       | null: false                    |
 
-has_one_attached :image
-
-### attendanceテーブル
-
 | sun_parttime_in  | integer    |                                |
 | sun_parttime_out | integer    |                                |
 | mon_parttime_in  | integer    |                                |
@@ -89,9 +82,6 @@ has_one_attached :image
 | fry_parttime_out | integer    |                                |
 | sat_parttime_in  | integer    |                                |
 | sat_parttime_out | integer    |                                |
-
-
-### questionテーブル
 
 | pr_1             | string     |                                |
 | pr_2             | string     |                                |
