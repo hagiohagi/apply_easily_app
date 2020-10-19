@@ -89,6 +89,10 @@
   font-size: 16px;
 }
 
+.field{
+  margin-top: 10px;
+}
+
 .field-lebel{
   padding: 10px 0;
   letter-spacing: 1px;

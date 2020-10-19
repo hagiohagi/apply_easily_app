@@ -1,6 +1,7 @@
 class InformationsController < ApplicationController
   before_action :save_to_session, only: :step2
   before_action :save_to_session_2, only: :step3
+  before_action :save_to_session_3, only: :confirm
 
   def index
   end
@@ -55,10 +56,11 @@ class InformationsController < ApplicationController
       spouse: user_params[:spouse]
     )
     if @user.valid?
-      render :action => 'confirm'
+      render 'confirm'
     else
-     render :action => '/informations/step3'
+     render '/informations/step3'
     end
+    binding.pry
   end
 
   def create
@@ -78,22 +80,26 @@ class InformationsController < ApplicationController
       prefecture_id: session[:prefecture_id],
       city: session[:city],
       building: session[:building],
-      highschool: user_params[:highschool],
-      h_admission: user_params[:h_admission],
-      h_graduate: user_params[:h_graduate],
-      univercity: user_params[:univercity],
-      u_admission: user_params[:u_admission],
-      u_graduate: user_params[:u_graduate],
-      job_experience: user_params[:job_experience],
-      qualification_1: user_params[:qualification_1],
-      q_year_1: user_params[:q_year_1],
-      qualification_2: user_params[:qualification_2],
-      q_year_2: user_params[:q_year_2],
-      qualification_3: user_params[:qualification_3],
-      q_year_3: user_params[:q_year_3],
-      station: user_params[:station],
-      spouse: user_params[:spouse]
+      highschool: session[:highschool] ,
+      h_admission: session[:h_admission],
+      h_graduate: session[:h_graduate],
+      univercity: session[:univercity],
+      u_admission: session[:u_admission],
+      u_graduate: session[:u_graduate],
+      job_experience: session[:job_experience],
+      qualification_1: session[:qualification_1],
+      qualification_2: session[:qualification_2],
+      qualification_3: session[:qualification_3],
+      q_year_1: session[:q_year_1],
+      q_year_2: session[:q_year_2],
+      q_year_3: session[:q_year_3],
+      station: session[:station],
+      spouse: session[:spouse]
     )
+
+    render '/informations/step1' and return if params[:back]
+    
+    binding.pry
     if @user.save
       session[:id] = @user.id
       redirect_to done_informations_path
@@ -198,8 +204,59 @@ class InformationsController < ApplicationController
       station: "shinjyku",
       spouse: "yes"
     )
-    binding.pry
     render '/informations/step2' unless @user.valid?(:save_to_session_2)
+  end
+
+  def save_to_session_3
+    session[:highschool] = user_params[:highschool]
+    session[:h_admission] = user_params[:h_admission]
+    session[:h_graduate] = user_params[:h_graduate]
+    session[:univercity] = user_params[:univercity]
+    session[:u_admission] = user_params[:u_admission]
+    session[:u_graduate] = user_params[:u_graduate]
+    session[:job_experience] = user_params[:job_experience]
+    session[:qualification_1] = user_params[:qualification_1]
+    session[:q_year_1] = user_params[:q_year_1]
+    session[:qualification_2] = user_params[:qualification_2]
+    session[:q_year_2] = user_params[:q_year_2]
+    session[:qualification_3] = user_params[:qualification_3]
+    session[:q_year_3] = user_params[:q_year_3]
+    session[:station] = user_params[:station]
+    session[:spouse] = user_params[:spouse]
+    
+    @user = User.new(
+      firstname: session[:firstname],
+      lastname: session[:lastname],
+      firstname_kana: session[:firstname_kana],
+      lastname_kana: session[:lastname_kana],
+      email: session[:email],
+      sex: session[:sex],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      birth_day: session[:birth_day],
+      phone_number: session[:phone_number],
+      image: session[:image],
+      postal_code: session[:postal_code],
+      prefecture_id: session[:prefecture_id],
+      city: session[:city],
+      building: session[:building],
+      highschool: session[:highschool] ,
+      h_admission: session[:h_admission],
+      h_graduate: session[:h_graduate],
+      univercity: session[:univercity],
+      u_admission: session[:u_admission],
+      u_graduate: session[:u_graduate],
+      job_experience: session[:job_experience],
+      qualification_1: session[:qualification_1],
+      qualification_2: session[:qualification_2],
+      qualification_3: session[:qualification_3],
+      q_year_1: session[:q_year_1],
+      q_year_2: session[:q_year_2],
+      q_year_3: session[:q_year_3],
+      station: session[:station],
+      spouse: session[:spouse]
+    )
+    render '/informations/step3' unless @user.valid?(:save_to_session_3)
   end
 
 
@@ -240,5 +297,5 @@ class InformationsController < ApplicationController
       :station,
       :spouse
     )
-  end
+end
 end
