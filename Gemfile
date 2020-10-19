@@ -57,8 +57,9 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'pry-rails'
 gem 'rspec-rails', '~> 4.0.0'
- gem 'factory_bot_rails'
- gem 'faker'
+gem 'factory_bot_rails'
+gem 'faker'
+gem 'active_hash'
 
 group :development do
   gem 'rubocop', require: false

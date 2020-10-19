@@ -15,7 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :phone_number,      null: false, unique: true
 
       t.integer :postal_code,       null: false
-      t.integer :prefecture,       null: false
+      t.integer :prefecture_id,       null: false
       t.string  :city,              null: false
       t.string  :building
 

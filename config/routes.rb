@@ -5,10 +5,9 @@ Rails.application.routes.draw do
       get 'step1'
       get 'step2'
       get 'step3' # ここで、入力の全てが終了する
+      get 'confirm' # 確認用ページ
       get 'done' # 登録完了後のページ
     end
-
-    
 
   end
   

@@ -1,13 +1,21 @@
-<div class="header">
-  <div class="title">
-  応募者エントリーページ
-  </div>
-</div>
+<div class="wrapper">
 
-<%= form_for @user, url: done_informations_path, method: :post do |f| %>
+  <div class="header">
+    <div class="title">
+      応募者エントリーページ
+    </div>
+  </div>
+  <div class="body">
+    <div class="leftside">
+      
+    </div>
+    <div class="center">
+
+<%= form_for @user, url: confirm_informations_path, do |f| %>
     
           <div class='field-label'>
             <%= f.label "高校名"%>
+            <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
             <%= f.text_field :highschool, autofocus: true%>
@@ -15,16 +23,17 @@
 
           <div class='field-label'>
             <%= f.label "入学年度"%>
+            <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.text_field :h_admission, autofocus: true%>
+            <%= f.select :h_admission,50.years.ago.year..  Date.today.year,prompt:"--",  autofocus: true%>
           </div>
 
           <div class='field-label'>
             <%= f.label "卒業年度"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :h_graduate, autofocus: true%>
+            <%= f.select :h_graduate, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
           </div>
 
           <div class='field-label'>
@@ -38,21 +47,21 @@
             <%= f.label "入学年度"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :u_admission, autofocus: true%>
+            <%= f.select :u_admission, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
           </div>
 
           <div class='field-label'>
             <%= f.label "卒業年度"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :u_graduate, autofocus: true%>
+            <%= f.select :u_graduate, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
           </div>
 
           <div class='field-label'>
             <%= f.label "職歴"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :job_experience, autofocus: true%>
+            <%= f.text_area :job_experience, autofocus: true%>
           </div>
 
           <div class='field-label'>
@@ -66,7 +75,7 @@
             <%= f.label "取得年度(1つ目)"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :q_year_1, autofocus: true%>
+            <%= f.select :q_year_1, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
           </div>
 
           <div class='field-label'>
@@ -80,7 +89,7 @@
             <%= f.label "取得年度(2つ目)"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :q_year_2, autofocus: true%>
+            <%= f.select :q_year_2, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
           </div>
 
           <div class='field-label'>
@@ -94,11 +103,12 @@
             <%= f.label "取得年度(3つ目)"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :q_year_3, autofocus: true%>
+            <%= f.select :q_year_3, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
           </div>
 
           <div class='field-label'>
             <%= f.label "最寄り駅"%>
+            <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
             <%= f.text_field :station, autofocus: true%>
@@ -106,10 +116,18 @@
 
           <div class='field-label'>
             <%= f.label "配偶者の有無"%>
+            <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.text_field :spouse, autofocus: true%>
+            <%= f.radio_button :spouse, "あり" %>
+            <%= f.label :spouse, "あり", {value: "あり", style: "display: inline-block;"} %>
+            <%= f.radio_button :spouse, "女性" %>
+            <%= f.label :spouse, "なし", {value: "なし", style: "display: inline-block;"} %>
           </div>
 
-      <%= f.submit 'Continue' %>
-<% end %>
+        <%= f.submit '登録する' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   include ActiveRecord::AttributeAssignment
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -29,7 +31,7 @@ class User < ApplicationRecord
 
   # step2入力項目
   validates :postal_code, format: { with: VALID_POSTAL_CODE }, on: :save_to_session_2
-  validates :prefecture,  on: :save_to_session_2
+  validates :prefecture_id, numericality: { other_than: 0 }, on: :save_to_session_2
   validates :city,  on: :save_to_session_2
 
   # step3入力項目

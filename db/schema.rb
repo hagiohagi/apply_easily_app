@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_133519) do
     t.date "birth_day", null: false
     t.string "phone_number", null: false
     t.integer "postal_code", null: false
-    t.integer "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "building"
     t.string "highschool", null: false

@@ -48,7 +48,7 @@ Things you may want to cover:
 
 
 | postal_code      | integer    | null: false                    |
-| prefecture       | integer    | null: false                    |
+| prefecture_id       | integer    | null: false                    |
 | city             | string     | null: false                    |
 | building         | string     |                                |
 

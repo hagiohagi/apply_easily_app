@@ -1,37 +1,60 @@
-<div class="header">
-  <div class="title">
-  応募者エントリーページ
+<div class="wrapper">
+
+  <div class="header">
+    <div class="title">
+      応募者エントリーページ
+    </div>
   </div>
-</div>
+  <div class="body">
+    <div class="leftside">
+      
+    </div>
+    <div class="center">
 
 <%= form_for @user, url: step3_informations_path, method: :get do |f| %>
+
+    <div class='field'>
       <div class='field-label'>
             <%= f.label "郵便番号(ハイフンなし)"%>
+            <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
             <%= f.text_field :postal_code, autofocus: true%>
           </div>
+        </div>
 
+        <div class='field'>
           <div class='field-label'>
             <%= f.label "都道府県"%>
+            <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.text_field :prefecture, autofocus: true%>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {},) %>
           </div>
+        </div>
 
+        <div class='field'>
           <div class='field-label'>
             <%= f.label "市町村・番地"%>
+            <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
             <%= f.text_field :city, autofocus: true%>
           </div>
+        </div>
 
+        <div class='field'>
           <div class='field-label'>
             <%= f.label "建物名"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :building, autofocus: true%>
           </div>
+        </div>
 
       <%= f.submit 'Continue' %>
 <% end %>
+
+    </div>
+  </div>
+</div>
