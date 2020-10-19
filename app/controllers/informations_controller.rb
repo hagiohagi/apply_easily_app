@@ -60,7 +60,6 @@ class InformationsController < ApplicationController
     else
      render '/informations/step3'
     end
-    binding.pry
   end
 
   def create
