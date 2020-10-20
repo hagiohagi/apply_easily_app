@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include ActiveRecord::AttributeAssignment
   extend ActiveHash::Associations::ActiveRecordExtensions
+  has_one :parttime
   belongs_to_active_hash :prefecture
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

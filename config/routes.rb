@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   }
   devise_for :owners
 
+  resource :parttimes, only:[:new, :create]
+
   root to: 'informations#index'
 
 end
