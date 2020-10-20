@@ -8,21 +8,20 @@ class InformationsController < ApplicationController
 
   def step1
     @user = User.new
-  # 新規インスタンス作成
+    # 新規インスタンス作成
   end
 
   def step2
     @user = User.new
-     # 新規インスタンス作成
-    
-  end
-
-  def step3
-    @user = User.new 
     # 新規インスタンス作成
   end
 
-  def confirm 
+  def step3
+    @user = User.new
+    # 新規インスタンス作成
+  end
+
+  def confirm
     @user = User.new(
       firstname: session[:firstname],
       lastname: session[:lastname],
@@ -58,7 +57,7 @@ class InformationsController < ApplicationController
     if @user.valid?
       render 'confirm'
     else
-     render '/informations/step3'
+      render '/informations/step3'
     end
   end
 
@@ -79,7 +78,7 @@ class InformationsController < ApplicationController
       prefecture_id: session[:prefecture_id],
       city: session[:city],
       building: session[:building],
-      highschool: session[:highschool] ,
+      highschool: session[:highschool],
       h_admission: session[:h_admission],
       h_graduate: session[:h_graduate],
       univercity: session[:univercity],
@@ -97,7 +96,7 @@ class InformationsController < ApplicationController
     )
 
     render '/informations/step1' and return if params[:back]
-    
+
     binding.pry
     if @user.save
       session[:id] = @user.id
@@ -111,10 +110,7 @@ class InformationsController < ApplicationController
     sign_in User.find(session[:id]) unless user_signed_in?
   end
 
-
-
   def save_to_session
-
     session[:image] = user_params[:image]
     session[:firstname] = user_params[:firstname]
     session[:lastname] = user_params[:lastname]
@@ -124,10 +120,10 @@ class InformationsController < ApplicationController
     session[:sex] = user_params[:sex]
     session[:password] = user_params[:password]
     session[:password_confirmation] = user_params[:password_confirmation]
-    session[:birth_day] = Date.new(params[:user]["birth_day(1i)"]&.to_i, params[:user]["birth_day(2i)"]&.to_i, params[:user]["birth_day(3i)"]&.to_i)
+    session[:birth_day] = Date.new(params[:user]['birth_day(1i)']&.to_i, params[:user]['birth_day(2i)']&.to_i, params[:user]['birth_day(3i)']&.to_i)
     session[:phone_number] = user_params[:phone_number]
     # バリデーションをかけるため、仮でインスタンスに入力値を入れる
-    
+
     @user = User.new(
       image: session[:image],
       firstname: session[:firstname],
@@ -140,26 +136,26 @@ class InformationsController < ApplicationController
       password_confirmation: session[:password_confirmation],
       birth_day: session[:birth_day],
       phone_number: session[:phone_number],
-      image: "image",
-      postal_code: "1234567",
-      prefecture_id: "1",
-      city: "shinjyku",
-      building: "",
-      highschool: "tokyo" ,
-      h_admission: "2000",
-      h_graduate: "",
-      univercity: "",
-      u_admission: "",
-      u_graduate: "",
-      job_experience: "xxx",
-      qualification_1: "aaa",
-      qualification_2: "bbb",
-      qualification_3: "ccc",
-      q_year_1: "1",
-      q_year_2: "2",
-      q_year_3: "3",
-      station: "shinjyku",
-      spouse: "yes"
+      image: 'image',
+      postal_code: '1234567',
+      prefecture_id: '1',
+      city: 'shinjyku',
+      building: '',
+      highschool: 'tokyo',
+      h_admission: '2000',
+      h_graduate: '',
+      univercity: '',
+      u_admission: '',
+      u_graduate: '',
+      job_experience: 'xxx',
+      qualification_1: 'aaa',
+      qualification_2: 'bbb',
+      qualification_3: 'ccc',
+      q_year_1: '1',
+      q_year_2: '2',
+      q_year_3: '3',
+      station: 'shinjyku',
+      spouse: 'yes'
     )
     # インスタンスにバリデーションをかけ、通らなければ1step目のページを再度表示する
     render '/informations/step1' unless @user.valid?(:save_to_session)
@@ -170,7 +166,7 @@ class InformationsController < ApplicationController
     session[:prefecture_id] = user_params[:prefecture_id]
     session[:city] = user_params[:city]
     session[:building] = user_params[:building]
-    
+
     @user = User.new(
       firstname: session[:firstname],
       lastname: session[:lastname],
@@ -187,21 +183,21 @@ class InformationsController < ApplicationController
       prefecture_id: session[:prefecture_id],
       city: session[:city],
       building: session[:building],
-      highschool: "tokyo" ,
-      h_admission: "2000",
-      h_graduate: "",
-      univercity: "",
-      u_admission: "",
-      u_graduate: "",
-      job_experience: "xxx",
-      qualification_1: "aaa",
-      qualification_2: "bbb",
-      qualification_3: "ccc",
-      q_year_1: "1",
-      q_year_2: "2",
-      q_year_3: "3",
-      station: "shinjyku",
-      spouse: "yes"
+      highschool: 'tokyo',
+      h_admission: '2000',
+      h_graduate: '',
+      univercity: '',
+      u_admission: '',
+      u_graduate: '',
+      job_experience: 'xxx',
+      qualification_1: 'aaa',
+      qualification_2: 'bbb',
+      qualification_3: 'ccc',
+      q_year_1: '1',
+      q_year_2: '2',
+      q_year_3: '3',
+      station: 'shinjyku',
+      spouse: 'yes'
     )
     render '/informations/step2' unless @user.valid?(:save_to_session_2)
   end
@@ -222,7 +218,7 @@ class InformationsController < ApplicationController
     session[:q_year_3] = user_params[:q_year_3]
     session[:station] = user_params[:station]
     session[:spouse] = user_params[:spouse]
-    
+
     @user = User.new(
       firstname: session[:firstname],
       lastname: session[:lastname],
@@ -239,7 +235,7 @@ class InformationsController < ApplicationController
       prefecture_id: session[:prefecture_id],
       city: session[:city],
       building: session[:building],
-      highschool: session[:highschool] ,
+      highschool: session[:highschool],
       h_admission: session[:h_admission],
       h_graduate: session[:h_graduate],
       univercity: session[:univercity],
@@ -258,12 +254,10 @@ class InformationsController < ApplicationController
     render '/informations/step3' unless @user.valid?(:save_to_session_3)
   end
 
-
   private
-  
+
   # 許可するキーを設定します
   def user_params
-
     params.require(:user).permit(
       :firstname,
       :lastname,
@@ -296,5 +290,5 @@ class InformationsController < ApplicationController
       :station,
       :spouse
     )
-end
+  end
 end

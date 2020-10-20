@@ -4,7 +4,7 @@ RSpec.describe '管理人新規登録', type: :system do
   before do
     @owner = FactoryBot.build(:owner)
   end
-  context 'ユーザー新規登録ができるとき' do 
+  context 'ユーザー新規登録ができるとき' do
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
       # トップページに移動する
       visit root_path
@@ -23,11 +23,11 @@ RSpec.describe '管理人新規登録', type: :system do
       fill_in 'registration_password', with: @owner.password
       fill_in 'registration_password_confirmation', with: @owner.password_confirmation
       # サインアップボタンを押すとユーザーモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Owner.count }.by(1)
+      end.to change { Owner.count }.by(1)
       # トップページへ遷移する
-      expect(current_path).to eq "/owners"
+      expect(current_path).to eq '/owners'
       expect(page).to have_content('トップへ戻る')
       visit root_path
       # ログアウトボタンが表示されていることを確認する
@@ -42,24 +42,24 @@ RSpec.describe '管理人新規登録', type: :system do
       visit root_path
       # トップページにサインアップページへ遷移するボタンがあることを確認する
       expect(page).to have_content('管理人用リンク')
-       # ログインページへ移動する
-       visit new_owner_session_path
-       # 新規登録ページに遷移するボタンがあることを確認する
-       expect(page).to have_content('新規登録')
-       # 新規登録ページへ移動する
-       visit new_owner_registration_path
+      # ログインページへ移動する
+      visit new_owner_session_path
+      # 新規登録ページに遷移するボタンがあることを確認する
+      expect(page).to have_content('新規登録')
+      # 新規登録ページへ移動する
+      visit new_owner_registration_path
       # ユーザー情報を入力する
-      fill_in 'registration_firstname', with: ""
-      fill_in 'registration_lastname', with: ""
-      fill_in 'registration_email', with: ""
-      fill_in 'registration_password', with: ""
-      fill_in 'registration_password_confirmation', with: ""
+      fill_in 'registration_firstname', with: ''
+      fill_in 'registration_lastname', with: ''
+      fill_in 'registration_email', with: ''
+      fill_in 'registration_password', with: ''
+      fill_in 'registration_password_confirmation', with: ''
       # サインアップボタンを押してもユーザーモデルのカウントは上がらないことを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Owner.count }.by(0)
+      end.to change { Owner.count }.by(0)
       # 新規登録ページへ戻されることを確認する
-      expect(current_path).to eq "/owners"
+      expect(current_path).to eq '/owners'
     end
   end
 end
@@ -85,7 +85,7 @@ RSpec.describe 'ログイン', type: :system do
       # ログインボタンを押す
       find('input[name="commit"]').click
       # トップページへ遷移することを確認する
-      expect(current_path).to eq  "/owners/sign_in"
+      expect(current_path).to eq '/owners/sign_in'
       expect(page).to have_content('トップへ戻る')
       visit root_path
       # ログアウトボタンが表示されていることを確認する
@@ -103,11 +103,11 @@ RSpec.describe 'ログイン', type: :system do
       # ログインページへ移動する
       visit new_owner_session_path
       # ユーザー情報を入力する
-      fill_in 'registration_firstname', with: ""
-      fill_in 'registration_lastname', with: ""
-      fill_in 'registration_email', with: ""
-      fill_in 'registration_password', with: ""
-      fill_in 'registration_password_confirmation', with: ""
+      fill_in 'registration_firstname', with: ''
+      fill_in 'registration_lastname', with: ''
+      fill_in 'registration_email', with: ''
+      fill_in 'registration_password', with: ''
+      fill_in 'registration_password_confirmation', with: ''
       # ログインボタンを押す
       find('input[name="commit"]').click
       # ログインページへ戻されることを確認する

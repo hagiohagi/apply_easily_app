@@ -15,10 +15,17 @@ Rails.application.routes.draw do
     sessions:      'users/sessions',
     passwords:     'users/passwords',
     registrations: 'users/registrations'
-  }
-  devise_for :owners
+  } 
 
-  resource :parttimes, only:[:new, :create]
+    resources :parttimes, only: [:new, :create] do
+      collection do
+        post 'confirm'
+        get 'done'
+      end
+    end
+
+
+  devise_for :owners
 
   root to: 'informations#index'
 

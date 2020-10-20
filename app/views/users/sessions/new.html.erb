@@ -32,17 +32,6 @@
             <%= f.password_field :password, autocomplete: "off", id: 'registration_password'%>
           </div>
         </div>
-
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label "パスワード"%>
-            <i>(確認用)</i>
-          </div>
-          <div class='field-input'>
-            <%= f.password_field :password_confirmation, autocomplete: "off", id: 'registration_password_confirmation' %>
-          </div>
-        </div>
-
           <div class='actions'>
             <%= f.submit "次の画面へ", name:"commit", class: 'btn'%>
           </div>
