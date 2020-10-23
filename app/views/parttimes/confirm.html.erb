@@ -1,0 +1,93 @@
+<div class="wrapper">
+
+  <div class="header">
+    <div class="title">
+      応募者エントリーページ
+    </div>
+  </div>
+  <div class="body">
+    <div class="leftside">
+    </div>
+    <div class="center">
+      <div class="parttime-confirmation">
+      <%= form_for(@parttime, url: {controller: 'parttimes', action: 'create' }) do |f| %>
+        <h1><b>以上の内容でお間違いないですか？</b></h1>
+
+    <table class="parttime-information-box">
+      <tbody>
+      <tr>
+          <th class="detail-user">氏名
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= current_user.firstname %><%= current_user.lastname %></td>
+        </tr>
+
+        <tr>
+          <th class="detail-parttime">日曜
+          </th>
+          <td class="detail-value"><%= @parttime.sun_parttime_in %>〜<%= @parttime.sun_parttime_out %></td>
+        </tr>
+        <tr>
+          <th class="detail-parttime">月曜
+          </th>
+          <td class="detail-value"><%= @parttime.mon_parttime_in %>〜<%= @parttime.mon_parttime_out %></td>
+        </tr>
+        <tr>
+          <th class="detail-parttime">火曜
+          </th>
+          <td class="detail-value"><%= @parttime.tue_parttime_in %>〜<%= @parttime.tue_parttime_out %></td>
+        </tr>
+        <tr>
+          <th class="detail-parttime">水曜
+          </th>
+          <td class="detail-value"><%= @parttime.wed_parttime_in %>〜<%= @parttime.wed_parttime_out %></td>
+        </tr>
+        <tr>
+          <th class="detail-parttime">木曜
+          </th>
+          <td class="detail-value"><%= @parttime.thu_parttime_in %>〜<%= @parttime.thu_parttime_out %></td>
+        </tr>
+        <tr>
+          <th class="detail-parttime">金曜
+          </th>
+          <td class="detail-value"><%= @parttime.fri_parttime_in %>〜<%= @parttime.fri_parttime_out %></td>
+        </tr>
+        <tr>
+          <th class="detail-parttime">土曜
+          </th>
+          <td class="detail-value"><%= @parttime.sat_parttime_in %>〜<%= @parttime.sat_parttime_out %></td>
+        </tr>
+        <tr>
+          <th class="detail-parttime">【質問】アルバイトに応募しようと思ったきっかけはなんですか？
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @parttime.pr_1 %></td>
+        </tr>
+        <tr>
+          <th class="detail-parttime">【質問】ここでの仕事を通して挑戦したいことは何ですか？
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @parttime.pr_2 %></td>
+        </tr>
+        <tr>
+          <th class="detail-parttime">【質問】趣味は何ですか？
+          <span class="indispensable">必須</span>
+          </th>
+          <td class="detail-value"><%= @parttime.pr_3 %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class='submit-btn'>
+      <%= f.submit "修正する", name: :back, class:'btn' %>
+      <%= f.submit "登録する", class:'btn' %>
+    </div>
+<% end %>
+
+        
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

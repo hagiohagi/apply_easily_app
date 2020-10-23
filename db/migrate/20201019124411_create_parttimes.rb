@@ -12,8 +12,8 @@ class CreateParttimes < ActiveRecord::Migration[6.0]
       t.integer :wed_parttime_out
       t.integer :thu_parttime_in
       t.integer :thu_parttime_out
-      t.integer :fry_parttime_in
-      t.integer :fry_parttime_out
+      t.integer :fri_parttime_in
+      t.integer :fri_parttime_out
       t.integer :sat_parttime_in
       t.integer :sat_parttime_out
       t.string :pr_1,             null: false

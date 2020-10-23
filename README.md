@@ -83,8 +83,8 @@ Things you may want to cover:
 | wed_parttime_out | integer    |                                |
 | thu_parttime_in  | integer    |                                |
 | thu_parttime_out | integer    |                                |
-| fry_parttime_in  | integer    |                                |
-| fry_parttime_out | integer    |                                |
+| fri_parttime_in  | integer    |                                |
+| fri_parttime_out | integer    |                                |
 | sat_parttime_in  | integer    |                                |
 | sat_parttime_out | integer    |                                |
 | pr_1             | string     | null: false                    |

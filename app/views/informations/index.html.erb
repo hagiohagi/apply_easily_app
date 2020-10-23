@@ -24,7 +24,11 @@
           </div>
         </div>
       <div class="main-button">
+      <% unless user_signed_in? %>
       <%= link_to 'エントリー', new_user_session_path, class:"link" %>
+      <% else %>
+      <%= link_to 'エントリー', new_parttime_path, class:"link" %>
+      <% end %>
         </div>
       <% end %>
       </div>
