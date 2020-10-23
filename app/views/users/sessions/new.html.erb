@@ -9,27 +9,12 @@
     <div class='account-page__inner--left account-page__header'>
       <h2>応募者<p>ログインページ</p></h2>
       <h5>※ユーザー登録がまだの方はこちらから</h5>
-      <%= link_to 'ユーザー登録', step1_informations_path %>
+      <div class='actions'>
+      <%= link_to 'ユーザー登録', step1_informations_path, class: 'btn' %>
+      </div>
     </div>
     <div class='account-page__inner--right user-form'>
-      <%= form_with model: @owner, url:owner_session_path, local: true do |f|%>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label "姓"%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :firstname, autofocus: true, id: 'registration_firstname'%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label "名"%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :lastname, autofocus: true, id: 'registration_lastname'%>
-          </div>
-        </div>
-
+      <%= form_with model: @user, url:user_session_path, local: true do |f|%>
         <div class='field'>
           <div class='field-label'>
             <%= f.label "メールアドレス"%>
@@ -38,8 +23,6 @@
             <%= f.email_field :email, id: 'registration_email'%>
           </div>
         </div>
-
-
         <div class='field'>
           <div class='field-label'>
             <%= f.label "パスワード"%>
@@ -49,22 +32,8 @@
             <%= f.password_field :password, autocomplete: "off", id: 'registration_password'%>
           </div>
         </div>
-
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label "パスワード"%>
-            <i>(確認用)</i>
-          </div>
-          <div class='field-input'>
-            <%= f.password_field :password_confirmation, autocomplete: "off", id: 'registration_password_confirmation' %>
-          </div>
-        </div>
-
           <div class='actions'>
-            <%= f.submit "ログイン", name:"commit", class: 'btn'%>
-          </div>
-          <div>
-            <%=link_to "新規登録", new_owner_registration_path, class: 'btn'%>
+            <%= f.submit "次の画面へ", name:"commit", class: 'btn'%>
           </div>
         </div>
       <% end %>

@@ -48,7 +48,7 @@ Things you may want to cover:
 
 
 | postal_code      | integer    | null: false                    |
-| prefecture_id       | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | city             | string     | null: false                    |
 | building         | string     |                                |
 
@@ -68,6 +68,11 @@ Things you may want to cover:
 | station          | string     |                                |
 | spouse           | text       | null: false                    |
 
+## Association
+  has_one: parttime
+
+## parttimes テーブル
+| user_id          | references | null: false, foreign_key: true |
 | sun_parttime_in  | integer    |                                |
 | sun_parttime_out | integer    |                                |
 | mon_parttime_in  | integer    |                                |
@@ -78,11 +83,13 @@ Things you may want to cover:
 | wed_parttime_out | integer    |                                |
 | thu_parttime_in  | integer    |                                |
 | thu_parttime_out | integer    |                                |
-| fry_parttime_in  | integer    |                                |
-| fry_parttime_out | integer    |                                |
+| fri_parttime_in  | integer    |                                |
+| fri_parttime_out | integer    |                                |
 | sat_parttime_in  | integer    |                                |
 | sat_parttime_out | integer    |                                |
+| pr_1             | string     | null: false                    |
+| pr_2             | string     | null: false                    |
+| pr_2             | string     | null: false                    |
 
-| pr_1             | string     |                                |
-| pr_2             | string     |                                |
-| pr_2             | string     |                                |
+## Association
+  belongs_to: user

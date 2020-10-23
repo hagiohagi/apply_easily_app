@@ -1,0 +1,178 @@
+<div class="wrapper">
+
+  <div class="header">
+    <div class="title">
+      応募者エントリーページ
+    </div>
+  </div>
+  <div class="body">
+    <div class="leftside">
+      
+    </div>
+    <div class='center'>
+      <%= form_for (@parttime), url: confirm_parttimes_path do |f| %>
+      <div class='input-block'>
+       <p>シフト希望時間</p>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "日曜【出勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :sun_parttime_in, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "日曜【退勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :sun_parttime_out, autofocus: true%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "月曜【出勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :mon_parttime_in, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "月曜【退勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :mon_parttime_out, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "火曜【出勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :tue_parttime_in, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "火曜【退勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :tue_parttime_out, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "水曜【出勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :wed_parttime_in, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "水曜【退勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :wed_parttime_out, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "木曜【出勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :thu_parttime_in, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "木曜【退勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :thu_parttime_out, autofocus: true %>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "金曜【出勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :fri_parttime_in, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "金曜【退勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :fri_parttime_out, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "土曜【出勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :sat_parttime_in, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "土曜【退勤時間】"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field  :sat_parttime_out, autofocus: true%>
+          </div>
+        </div>
+      </div>
+
+      <div class='input-block'>
+        <p>〜質問です。詳しい内容につきましては面接の際にお話ししたいので一言でお答えください。〜</p>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "【質問】アルバイトに応募しようと思ったきっかけはなんですか？"%>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class='pr-input'>
+            <%= f.text_field :pr_1, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "【質問】ここでの仕事を通して挑戦したいことは何ですか？"%>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class='pr-input'>
+            <%= f.text_field :pr_2, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label "【質問】趣味は何ですか？"%>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class='pr-input'>
+            <%= f.text_field :pr_3, autofocus: true%>
+          </div>
+        </div>
+        <%= f.submit '登録する', class:'btn' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,9 +9,11 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    @parttime = Parttime.new
+    render  new_parttime_path
+  end
 
   # DELETE /resource/sign_out
   # def destroy
