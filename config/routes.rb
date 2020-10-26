@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   } 
 
-    resources :parttimes, only: [:new, :create] do
+    resources :parttimes, only: [:new, :create, :show, :delete] do
       collection do
         post 'confirm'
         get 'done'

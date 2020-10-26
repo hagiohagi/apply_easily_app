@@ -4,6 +4,8 @@ class InformationsController < ApplicationController
   before_action :save_to_session_3, only: :confirm
 
   def index
+    @users = User.all
+    @parttimes = Parttime.includes(:user)
   end
 
   def step1
@@ -33,7 +35,6 @@ class InformationsController < ApplicationController
       password_confirmation: session[:password_confirmation],
       birth_day: session[:birth_day],
       phone_number: session[:phone_number],
-      image: session[:image],
       postal_code: session[:postal_code],
       prefecture_id: session[:prefecture_id],
       city: session[:city],
@@ -73,7 +74,6 @@ class InformationsController < ApplicationController
       password_confirmation: session[:password_confirmation],
       birth_day: session[:birth_day],
       phone_number: session[:phone_number],
-      image: session[:image],
       postal_code: session[:postal_code],
       prefecture_id: session[:prefecture_id],
       city: session[:city],
@@ -111,7 +111,6 @@ class InformationsController < ApplicationController
   end
 
   def save_to_session
-    session[:image] = user_params[:image]
     session[:firstname] = user_params[:firstname]
     session[:lastname] = user_params[:lastname]
     session[:firstname_kana] = user_params[:firstname_kana]
@@ -125,7 +124,6 @@ class InformationsController < ApplicationController
     # バリデーションをかけるため、仮でインスタンスに入力値を入れる
 
     @user = User.new(
-      image: session[:image],
       firstname: session[:firstname],
       lastname: session[:lastname],
       firstname_kana: session[:firstname_kana],
@@ -136,7 +134,6 @@ class InformationsController < ApplicationController
       password_confirmation: session[:password_confirmation],
       birth_day: session[:birth_day],
       phone_number: session[:phone_number],
-      image: 'image',
       postal_code: '1234567',
       prefecture_id: '1',
       city: 'shinjyku',
@@ -157,6 +154,7 @@ class InformationsController < ApplicationController
       station: 'shinjyku',
       spouse: 'yes'
     )
+    binding.pry
     # インスタンスにバリデーションをかけ、通らなければ1step目のページを再度表示する
     render '/informations/step1' unless @user.valid?(:save_to_session)
   end
@@ -178,7 +176,6 @@ class InformationsController < ApplicationController
       password_confirmation: session[:password_confirmation],
       birth_day: session[:birth_day],
       phone_number: session[:phone_number],
-      image: session[:image],
       postal_code: session[:postal_code],
       prefecture_id: session[:prefecture_id],
       city: session[:city],
@@ -230,7 +227,6 @@ class InformationsController < ApplicationController
       password_confirmation: session[:password_confirmation],
       birth_day: session[:birth_day],
       phone_number: session[:phone_number],
-      image: session[:image],
       postal_code: session[:postal_code],
       prefecture_id: session[:prefecture_id],
       city: session[:city],
@@ -259,6 +255,7 @@ class InformationsController < ApplicationController
   # 許可するキーを設定します
   def user_params
     params.require(:user).permit(
+      :image,
       :firstname,
       :lastname,
       :firstname_kana,
@@ -269,7 +266,6 @@ class InformationsController < ApplicationController
       :password_confirmation,
       :birth_day,
       :phone_number,
-      :image,
       :postal_code,
       :prefecture_id,
       :city,

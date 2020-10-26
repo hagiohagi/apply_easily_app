@@ -1,9 +1,20 @@
 class ParttimesController < ApplicationController
 
 
+  def index
+    @parttimes = Parttime.includes(:user)
+  end
+
   def new
     @parttime = Parttime.new
   end
+
+  def show
+    @user = User.find(params[:id])
+    @parttime = @user.parttime
+    # @parttime = @user.parttime
+  end
+  
 
   def confirm
     @parttime = Parttime.new(
@@ -86,7 +97,7 @@ class ParttimesController < ApplicationController
   end
 
   def done
-    sign_out User.find(session[:id]) if user_signed_in?
+    sign_out User.find(current_user.id) if user_signed_in?
   end
   
   private

@@ -1,7 +1,7 @@
 class CreateParttimes < ActiveRecord::Migration[6.0]
   def change
     create_table :parttimes do |t|
-      t.references :user,         null: false, foreign_key: true
+      t.references :user,  foreign_key: true
       t.integer :sun_parttime_in
       t.integer :sun_parttime_out
       t.integer :mon_parttime_in

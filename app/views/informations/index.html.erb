@@ -10,7 +10,25 @@
 
       <div class="center">
       <% if owner_signed_in? %>
-      <h1>管理人用ページ、鋭意製作中！</h1>
+        <div class="welcome-announce">
+          <h1>応募者一覧</h1>
+        </div>
+          <% @users.each do |user| %>
+          <li class='list'>
+            <%= link_to parttime_path(user) do %>
+              <ul class='parttime-img-content'>
+              <% if user.image.attached? %>
+              <%= image_tag user.image.variant(resize: '200x200'), class: "parttime-img" %>
+              <% end %>
+              </ul>
+            <ul class='parttime-info'>
+              <div class='parttime-name'>
+                <%= user.firstname %>  <%= user.lastname %> (<%= user.firstname_kana %>  <%= user.lastname_kana %>)
+              </div>
+            </ul>
+          <% end %>
+        </li>
+        <% end %>
       <% else %>
         <div class="welcome-announce">
         <p>当店の募集要項にご興味をお持ちいただきありがとうございます。</p>
