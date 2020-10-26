@@ -1,5 +1,5 @@
 class Parttime < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :user, optional: true, foreign_key: true
 
   with_options presence: true do
     validates :pr_1

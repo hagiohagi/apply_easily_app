@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_10_19_124411) do
   end
 
   create_table "parttimes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.integer "sun_parttime_in"
     t.integer "sun_parttime_out"
     t.integer "mon_parttime_in"
@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2020_10_19_124411) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image", null: false
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.string "firstname_kana", null: false

@@ -2,6 +2,7 @@ class User < ApplicationRecord
   include ActiveRecord::AttributeAssignment
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_one :parttime
+  has_one_attached :image
   accepts_nested_attributes_for :parttime
   belongs_to_active_hash :prefecture
   # Include default devise modules. Others available are:
@@ -18,7 +19,7 @@ class User < ApplicationRecord
 
   with_options presence: true do
     # step1入力項目
-    validates :image, on: :save_to_session
+    # validates :image, on: :save_to_session
     validates :firstname, format: { with: PASSWORD_REGEX_ZENKAKU }, on: :save_to_session
     validates :lastname, format: { with: PASSWORD_REGEX_ZENKAKU }, on: :save_to_session
     validates :firstname_kana, format: { with: PASSWORD_REGEX_ZENKAKUKANA }, on: :save_to_session

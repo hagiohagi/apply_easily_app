@@ -12,7 +12,8 @@ class Users::SessionsController < Devise::SessionsController
   def create
     super
     @parttime = Parttime.new
-    render  new_parttime_path
+    return
+    render new_parttime_path
   end
 
   # DELETE /resource/sign_out
