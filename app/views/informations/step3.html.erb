@@ -11,14 +11,14 @@
     </div>
     <div class="center">
 
-<%= form_for @user, url: confirm_informations_path do |f| %>
-    
+      <%= form_for @user, url: confirm_informations_path do |f| %>
+      <%# <%= render 'shared/error' %>
           <div class='field-label'>
             <%= f.label "高校名"%>
             <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.text_field :highschool, autofocus: true%>
+            <%= f.text_field :highschool, autofocus: true, id: 'registration_highschool' %>
           </div>
 
           <div class='field-label'>
@@ -26,84 +26,84 @@
             <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.select :h_admission,50.years.ago.year..  Date.today.year,prompt:"--",  autofocus: true%>
+            <%= f.select :h_admission,50.years.ago.year..  Date.today.year,prompt:"--",  autofocus: true %>
           </div>
 
           <div class='field-label'>
             <%= f.label "卒業年度"%>
           </div>
           <div class='field-input'>
-            <%= f.select :h_graduate, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
+            <%= f.select :h_graduate, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true %>
           </div>
 
           <div class='field-label'>
             <%= f.label "大学名"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :univercity, autofocus: true%>
+            <%= f.text_field :univercity, autofocus: true, id: 'registration_univercity' %>
           </div>
 
           <div class='field-label'>
             <%= f.label "入学年度"%>
           </div>
           <div class='field-input'>
-            <%= f.select :u_admission, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
+            <%= f.select :u_admission, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true %>
           </div>
 
           <div class='field-label'>
             <%= f.label "卒業年度"%>
           </div>
           <div class='field-input'>
-            <%= f.select :u_graduate, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
+            <%= f.select :u_graduate, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true %>
           </div>
 
           <div class='field-label'>
             <%= f.label "職歴"%>
           </div>
           <div class='field-input'>
-            <%= f.text_area :job_experience, autofocus: true%>
+            <%= f.text_area :job_experience, autofocus: true, id: 'registration_job_experience' %>
           </div>
 
           <div class='field-label'>
             <%= f.label "資格(1つ目)"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :qualification_1, autofocus: true%>
+            <%= f.text_field :qualification_1, autofocus: true, id: 'registration_qualification_1' %>
           </div>
 
           <div class='field-label'>
             <%= f.label "取得年度(1つ目)"%>
           </div>
           <div class='field-input'>
-            <%= f.select :q_year_1, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
+            <%= f.select :q_year_1, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true %>
           </div>
 
           <div class='field-label'>
             <%= f.label "資格(2つ目)"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :qualification_2, autofocus: true%>
+            <%= f.text_field :qualification_2, autofocus: true, id: 'registration_qualification_2' %>
           </div>
 
           <div class='field-label'>
             <%= f.label "取得年度(2つ目)"%>
           </div>
           <div class='field-input'>
-            <%= f.select :q_year_2, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
+            <%= f.select :q_year_2, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true %>
           </div>
 
           <div class='field-label'>
             <%= f.label "資格(3つ目)"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :qualification_3, autofocus: true%>
+            <%= f.text_field :qualification_3, autofocus: true, id: 'registration_qualification_3' %>
           </div>
 
           <div class='field-label'>
             <%= f.label "取得年度(3つ目)"%>
           </div>
           <div class='field-input'>
-            <%= f.select :q_year_3, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true%>
+            <%= f.select :q_year_3, 50.years.ago.year.. Date.today.year,prompt:"--", autofocus: true %>
           </div>
 
           <div class='field-label'>
@@ -111,7 +111,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.text_field :station, autofocus: true%>
+            <%= f.text_field :station, autofocus: true, id: 'registration_station' %>
           </div>
 
           <div class='field-label'>
@@ -121,11 +121,11 @@
           <div class='field-input'>
             <%= f.radio_button :spouse, "あり" %>
             <%= f.label :spouse, "あり", {value: "あり", style: "display: inline-block;"} %>
-            <%= f.radio_button :spouse, "女性" %>
+            <%= f.radio_button :spouse, "なし" %>
             <%= f.label :spouse, "なし", {value: "なし", style: "display: inline-block;"} %>
           </div>
 
-        <%= f.submit '登録する', class:'btn' %>
+        <%= f.submit '登録する', name:"commit", class:'btn' %>
       <% end %>
 
     </div>

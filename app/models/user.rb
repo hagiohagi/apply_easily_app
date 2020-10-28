@@ -18,27 +18,23 @@ class User < ApplicationRecord
   VALID_POSTAL_CODE = /\A\d{7}\z/.freeze
 
   with_options presence: true do
-    # step1入力項目
-    # validates :image, on: :save_to_session
-    validates :firstname, format: { with: PASSWORD_REGEX_ZENKAKU }, on: :save_to_session
-    validates :lastname, format: { with: PASSWORD_REGEX_ZENKAKU }, on: :save_to_session
-    validates :firstname_kana, format: { with: PASSWORD_REGEX_ZENKAKUKANA }, on: :save_to_session
-    validates :lastname_kana, format: { with: PASSWORD_REGEX_ZENKAKUKANA }, on: :save_to_session
-    validates :email, format: { with: VALID_EMAIL_REGEX }, on: :save_to_session
-    validates :sex, on: :save_to_session
-    validates :password, format: { with: PASSWORD_REGEX }, on: :save_to_session
-    validates :password_confirmation, format: { with: PASSWORD_REGEX }, on: :save_to_session
-    validates :birth_day, on: :save_to_session
-    validates :phone_number, format: { with: VALID_PHONE_NUMBER }, on: :save_to_session
 
-    # step2入力項目
-    validates :postal_code, format: { with: VALID_POSTAL_CODE }, on: :save_to_session_2
-    validates :prefecture_id, numericality: { other_than: 0 }, on: :save_to_session_2
-    validates :city,  on: :save_to_session_2
-
-    # step3入力項目
-    validates :highschool, on: :create
-    validates :h_admission, on: :create
-    validates :spouse,  on: :create
+    validates :firstname, format: { with: PASSWORD_REGEX_ZENKAKU }
+    validates :lastname, format: { with: PASSWORD_REGEX_ZENKAKU }
+    validates :firstname_kana, format: { with: PASSWORD_REGEX_ZENKAKUKANA }
+    validates :lastname_kana, format: { with: PASSWORD_REGEX_ZENKAKUKANA }
+    validates :email, format: { with: VALID_EMAIL_REGEX }
+    validates :sex
+    validates :password, length: { minimum: 8 }, format: { with: PASSWORD_REGEX }
+    validates :password_confirmation, length: { minimum: 8 }, format: { with: PASSWORD_REGEX }
+    validates :birth_day
+    validates :phone_number, format: { with: VALID_PHONE_NUMBER }
+    validates :postal_code, format: { with: VALID_POSTAL_CODE }
+    validates :prefecture_id, numericality: { other_than: 0 }
+    validates :city
+    validates :highschool
+    validates :h_admission
+    validates :station
+    validates :spouse
   end
 end

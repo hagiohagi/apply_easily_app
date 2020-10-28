@@ -12,6 +12,7 @@
     <div class="center">
 
       <%= form_for @user, url: step2_informations_path, method: :get do |f| %>
+       <%# <%= render 'shared/error' %>
         <div class='field'>
           <p>
           <%= f.label "証明写真(顔がはっきりと見えるもの・画像加工不可)"%>
@@ -28,7 +29,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.text_field :firstname, autofocus: true%>
+            <%= f.text_field :firstname, autofocus: true, id: 'registration_firstname' %>
           </div>
         </div>
 
@@ -38,7 +39,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.text_field :lastname, autofocus: true%>
+            <%= f.text_field :lastname, autofocus: true, id: 'registration_lastname' %>
           </div>
         </div>
 
@@ -48,7 +49,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.text_field :firstname_kana, autofocus: true%>
+            <%= f.text_field :firstname_kana, autofocus: true, id: 'registration_firstname_kana' %>
           </div>
         </div>
 
@@ -58,7 +59,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.text_field :lastname_kana, autofocus: true%>
+            <%= f.text_field :lastname_kana, autofocus: true, id: 'registration_lastname_kana' %>
           </div>
         </div>
 
@@ -68,7 +69,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.email_field :email%>
+            <%= f.email_field :email, id: 'registration_email' %>
           </div>
         </div>
 
@@ -79,9 +80,9 @@
           </div>
           <div class='field-input'>
             <%= f.radio_button :sex, "男性" %>
-            <%= f.label :sex, "男性", {value: "男性", style: "display: inline-block;"} %>
+            <%= f.label :sex, "男性", {value: "男性", style: "display: inline-block;"}  %>
             <%= f.radio_button :sex, "女性" %>
-            <%= f.label :sex, "女性", {value: "女性", style: "display: inline-block;"} %>
+            <%= f.label :sex, "女性", {value: "女性", style: "display: inline-block;"}  %>
           </div>
         </div>
 
@@ -92,7 +93,7 @@
             <i>※英字と数字の両方を含めて8文字以上で設定してください</i>
           </div>
           <div class='field-input'>
-            <%= f.password_field :password, autocomplete: "off"%>
+            <%= f.password_field :password, autocomplete: "off", id: 'registration_password' %>
           </div>
         </div>
 
@@ -103,7 +104,7 @@
 
           </div>
           <div class='field-input'>
-            <%= f.password_field :password_confirmation, autocomplete: "off"%>
+            <%= f.password_field :password_confirmation, autocomplete: "off", id: 'registration_password_confirmation' %>
           </div>
         </div>
 
@@ -118,7 +119,8 @@
              start_year: Time.now.year - 60, 
              end_year: Time.now.year - 18, 
              default: Date.new(1989, 1, 1), 
-             use_month_numbers: true %>
+             use_month_numbers: true
+              %>
           </div>
         </div>
 
@@ -129,12 +131,12 @@
 
           </div>
           <div class='field-input'>
-            <%= f.text_field :phone_number %>
+            <%= f.text_field :phone_number, id: 'registration_phone_number' %>
           </div>
         </div>
 
 
-  <%= f.submit '続けて記入する', class:'btn' %>
+  <%= f.submit '続けて記入する', name:"commit", class:'btn' %>
 <% end %>
 
     </div>

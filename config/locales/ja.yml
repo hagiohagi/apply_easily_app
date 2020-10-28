@@ -1,0 +1,45 @@
+ja:
+ activerecord:
+   attributes:
+     owner:
+       firstname: 苗字
+       lastname: 名前
+       email: メールアドレス
+       password: パスワード
+       password_confirmation: 確認用のパスワード
+
+     user:
+       image: 画像
+       firstname: 苗字
+       lastname: 名前
+       firstname_kana: 苗字（ふりがな）
+       lastname_kana: 名前（ふりがな）
+       email: メールアドレス
+       password: パスワード
+       password_confirmation: 確認用のパスワード
+       birth_day: 生年月日
+       phone_number: 電話番号
+       postal_code: 郵便番号
+       prefecture_id: 都道府県
+       city: 番地
+       building: 建物名
+       highschool: 高校名
+       h_admission: 高校入学年度
+       h_graduate: 高校卒業年度
+       univercity: 大学名
+       u_admission: 大学入学年度
+       u_graduate: 大学卒業年度
+       job_experience: 職歴
+       qualification_1: 資格（その１）
+       q_year_1: 資格取得年度（その１）
+       qualification_2: 資格（その２）
+       q_year_2: 資格取得年度（その２）
+       qualification_3: 資格（その３）
+       q_year_3: 資格取得年度（その３）
+       station: 最寄り駅
+       spouse: 配偶者の有無
+
+     parttime:
+       pr_1: 質問
+       pr_2: 質問
+       pr_3: 質問
