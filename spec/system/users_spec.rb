@@ -14,6 +14,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       # ログインページへ移動する
       visit step1_informations_path
       # ユーザー情報を入力する
+      
       fill_in 'registration_firstname', with: @user.firstname
       fill_in 'registration_lastname', with: @user.lastname
       fill_in 'registration_firstname_kana', with: @user.firstname_kana

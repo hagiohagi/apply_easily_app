@@ -16,11 +16,13 @@
         <div class='field'>
           <p>
           <%= f.label "証明写真(顔がはっきりと見えるもの・画像加工不可)"%>
-          <%= image_tag @user.image.variant(resize:`100x100`), class:"click-upload" if @user.image.attached?%>
+          <%= image_tag @user.image, class:"click-upload" if @user.image.attached?%>
           <%# <span class="indispensable">必須</span> %>
           </p>
+          <div id="image-list">
           <p>クリックしてファイルをアップロード</p>
-          <%= f.file_field :image, id:"item-image" %>
+          <%= f.file_field :image, id:"user-image" %>
+          </div>
       </div>
 
         <div class='field'>
