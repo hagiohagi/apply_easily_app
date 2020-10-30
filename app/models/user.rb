@@ -18,7 +18,6 @@ class User < ApplicationRecord
   VALID_POSTAL_CODE = /\A\d{7}\z/.freeze
 
   with_options presence: true do
-
     validates :firstname, format: { with: PASSWORD_REGEX_ZENKAKU }
     validates :lastname, format: { with: PASSWORD_REGEX_ZENKAKU }
     validates :firstname_kana, format: { with: PASSWORD_REGEX_ZENKAKUKANA }

@@ -1,6 +1,4 @@
 class ParttimesController < ApplicationController
-
-
   def index
     @parttimes = Parttime.includes(:user)
   end
@@ -14,7 +12,6 @@ class ParttimesController < ApplicationController
     @parttime = @user.parttime
     # @parttime = @user.parttime
   end
-  
 
   def confirm
     @parttime = Parttime.new(
@@ -88,19 +85,21 @@ class ParttimesController < ApplicationController
     )
 
     render new_parttime_path and return if params[:back]
+
     if @parttime.save
       redirect_to done_parttimes_path
     else
-      render  new_parttime_path
+      render new_parttime_path
     end
   end
 
   def done
     sign_out User.find(current_user.id) if user_signed_in?
   end
-  
+
   private
+
   def parttime_params
-    params.require(:parttime).permit(:sun_parttime_in,:sun_parttime_out,:mon_parttime_in,:mon_parttime_out,:tue_parttime_in,:tue_parttime_out,:wed_parttime_in,:wed_parttime_out,:thu_parttime_in,:thu_parttime_out,:fri_parttime_in,:fri_parttime_out,:sat_parttime_in,:sat_parttime_out,:pr_1,:pr_2,:pr_3,).merge(user_id: current_user.id)
+    params.require(:parttime).permit(:sun_parttime_in, :sun_parttime_out, :mon_parttime_in, :mon_parttime_out, :tue_parttime_in, :tue_parttime_out, :wed_parttime_in, :wed_parttime_out, :thu_parttime_in, :thu_parttime_out, :fri_parttime_in, :fri_parttime_out, :sat_parttime_in, :sat_parttime_out, :pr_1, :pr_2, :pr_3).merge(user_id: current_user.id)
   end
 end

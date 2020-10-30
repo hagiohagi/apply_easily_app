@@ -15,17 +15,17 @@ describe Parttime do
       it 'pr_1が空だと登録できない' do
         @parttime.pr_1 = ''
         @parttime.valid?
-        expect(@parttime.errors.full_messages).to include("質問を入力してください")
+        expect(@parttime.errors.full_messages).to include('質問を入力してください')
       end
       it 'pr_2が空だと登録できない' do
         @parttime.pr_2 = ''
         @parttime.valid?
-        expect(@parttime.errors.full_messages).to include("質問を入力してください")
+        expect(@parttime.errors.full_messages).to include('質問を入力してください')
       end
       it 'pr__3が空だと登録できない' do
         @parttime.pr_3 = ''
         @parttime.valid?
-        expect(@parttime.errors.full_messages).to include("質問を入力してください")
+        expect(@parttime.errors.full_messages).to include('質問を入力してください')
       end
     end
   end

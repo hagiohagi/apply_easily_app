@@ -64,4 +64,5 @@ gem 'rails-i18n'
 
 group :development do
   gem 'rubocop', require: false
+  gem 'rails_12factor'
 end
