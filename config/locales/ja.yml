@@ -15,6 +15,7 @@ ja:
        firstname_kana: 苗字（ふりがな）
        lastname_kana: 名前（ふりがな）
        email: メールアドレス
+       sex: 性別
        password: パスワード
        password_confirmation: 確認用のパスワード
        birth_day: 生年月日

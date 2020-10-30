@@ -12,16 +12,15 @@
     <div class="center">
 
       <%= form_for @user, url: step2_informations_path, method: :get do |f| %>
-       <%# <%= render 'shared/error' %>
+       <%= render 'shared/error', object: f.object %>
         <div class='field'>
           <p>
           <%= f.label "証明写真(顔がはっきりと見えるもの・画像加工不可)"%>
-          <%= image_tag @user.image, class:"click-upload" if @user.image.attached?%>
-          <%# <span class="indispensable">必須</span> %>
+          <%= image_tag @user.image, class:"click-upload" if @user.image.present?%>
           </p>
-          <div id="image-list">
           <p>クリックしてファイルをアップロード</p>
           <%= f.file_field :image, id:"user-image" %>
+          <div id="image-list">
           </div>
       </div>
 

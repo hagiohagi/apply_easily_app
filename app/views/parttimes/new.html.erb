@@ -11,7 +11,7 @@
     </div>
     <div class='center'>
       <%= form_for (@parttime), url: confirm_parttimes_path do |f| %>
-      <%# <%= render 'shared/error' %>
+      <%= render 'shared/error', object: f.object %>
       <div class='input-block'>
        <p>シフト希望時間</p>
         <div class='field'>

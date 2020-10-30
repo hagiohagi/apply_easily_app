@@ -12,7 +12,7 @@
     <div class="center">
 
       <%= form_for @user, url: step3_informations_path, method: :get do |f| %>
-      <%# <%= render 'shared/error' %>
+      <%= render 'shared/error', object: f.object %>
         <div class='field'>
           <div class='field-label'>
             <%= f.label "郵便番号(ハイフンなし)"%>
