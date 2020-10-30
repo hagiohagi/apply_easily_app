@@ -13,7 +13,7 @@
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: @owner, url:owner_session_path, local: true do |f|%>
-      <%# <%= devise_error_messages!%> %>
+      <%= render 'shared/error', object: f.object %>
         <div class='field'>
           <div class='field-label'>
             <%= f.label "姓"%>
