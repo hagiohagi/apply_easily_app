@@ -95,9 +95,8 @@ class InformationsController < ApplicationController
       spouse: session[:spouse]
     )
 
-    render '/informations/step1' and return if params[:back]
+    render step1_informations_path and return if params[:back]
 
-    binding.pry
     if @user.save
       session[:id] = @user.id
       redirect_to done_informations_path
@@ -152,9 +151,8 @@ class InformationsController < ApplicationController
       q_year_2: '2',
       q_year_3: '3',
       station: 'shinjyku',
-      spouse: 'yes'
+      spouse: 'あり'
     )
-    binding.pry
     # インスタンスにバリデーションをかけ、通らなければ1step目のページを再度表示する
     render '/informations/step1' unless @user.valid?(:save_to_session)
   end
@@ -194,7 +192,7 @@ class InformationsController < ApplicationController
       q_year_2: '2',
       q_year_3: '3',
       station: 'shinjyku',
-      spouse: 'yes'
+      spouse: 'あり'
     )
     render '/informations/step2' unless @user.valid?(:save_to_session_2)
   end

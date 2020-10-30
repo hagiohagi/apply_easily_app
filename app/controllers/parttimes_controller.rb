@@ -58,7 +58,6 @@ class ParttimesController < ApplicationController
     session[:pr_2] = parttime_params[:pr_2]
     session[:pr_3] = parttime_params[:pr_3]
 
-    binding.pry
     if @parttime.valid?
       render 'confirm'
     else

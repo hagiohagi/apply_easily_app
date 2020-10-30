@@ -11,15 +11,15 @@
     </div>
     <div class="center">
 
-<%= form_for @user, url: step3_informations_path, method: :get do |f| %>
-
-    <div class='field'>
-      <div class='field-label'>
+      <%= form_for @user, url: step3_informations_path, method: :get do |f| %>
+      <%= render 'shared/error', object: f.object %>
+        <div class='field'>
+          <div class='field-label'>
             <%= f.label "郵便番号(ハイフンなし)"%>
             <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.text_field :postal_code, autofocus: true%>
+            <%= f.text_field :postal_code, autofocus: true, id: 'registration_postal_code' %>
           </div>
         </div>
 
@@ -39,7 +39,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class='field-input'>
-            <%= f.text_field :city, autofocus: true%>
+            <%= f.text_field :city, autofocus: true, id: 'registration_city' %>
           </div>
         </div>
 
@@ -48,11 +48,11 @@
             <%= f.label "建物名"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :building, autofocus: true%>
+            <%= f.text_field :building, autofocus: true, id: 'registration_building' %>
           </div>
         </div>
 
-      <%= f.submit '続けて記入する', class:'btn' %>
+      <%= f.submit '続けて記入する', name:"commit", class:'btn' %>
 <% end %>
 
     </div>

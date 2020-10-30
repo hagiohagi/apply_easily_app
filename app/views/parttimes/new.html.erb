@@ -11,6 +11,7 @@
     </div>
     <div class='center'>
       <%= form_for (@parttime), url: confirm_parttimes_path do |f| %>
+      <%= render 'shared/error', object: f.object %>
       <div class='input-block'>
        <p>シフト希望時間</p>
         <div class='field'>
@@ -18,7 +19,7 @@
             <%= f.label "日曜【出勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :sun_parttime_in, autofocus: true%>
+            <%= f.text_field :sun_parttime_in, autofocus: true, id:'registration_sun_parttime_in' %>
           </div>
         </div>
 
@@ -27,7 +28,7 @@
             <%= f.label "日曜【退勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :sun_parttime_out, autofocus: true%>
+            <%= f.text_field :sun_parttime_out, autofocus: true, id:'registration_sun_parttime_out' %>
           </div>
         </div>
         <div class='field'>
@@ -35,7 +36,7 @@
             <%= f.label "月曜【出勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :mon_parttime_in, autofocus: true%>
+            <%= f.text_field :mon_parttime_in, autofocus: true, id:'registration_mon_parttime_in' %>
           </div>
         </div>
 
@@ -44,7 +45,7 @@
             <%= f.label "月曜【退勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :mon_parttime_out, autofocus: true%>
+            <%= f.text_field :mon_parttime_out, autofocus: true, id:'registration_mon_parttime_out' %>
           </div>
         </div>
 
@@ -53,7 +54,7 @@
             <%= f.label "火曜【出勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :tue_parttime_in, autofocus: true%>
+            <%= f.text_field :tue_parttime_in, autofocus: true, id: 'registration_tue_parttime_in' %>
           </div>
         </div>
 
@@ -62,7 +63,7 @@
             <%= f.label "火曜【退勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :tue_parttime_out, autofocus: true%>
+            <%= f.text_field :tue_parttime_out, autofocus: true, id:'registration_tue_parttime_out' %>
           </div>
         </div>
 
@@ -71,7 +72,7 @@
             <%= f.label "水曜【出勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :wed_parttime_in, autofocus: true%>
+            <%= f.text_field :wed_parttime_in, autofocus: true, id:'registration_wed_parttime_in' %>
           </div>
         </div>
 
@@ -80,7 +81,7 @@
             <%= f.label "水曜【退勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :wed_parttime_out, autofocus: true%>
+            <%= f.text_field :wed_parttime_out, autofocus: true, id:'registration_wed_parttime_out' %>
           </div>
         </div>
 
@@ -89,7 +90,7 @@
             <%= f.label "木曜【出勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :thu_parttime_in, autofocus: true%>
+            <%= f.text_field :thu_parttime_in, autofocus: true, id:'registration_thu_parttime_in' %>
           </div>
         </div>
 
@@ -98,7 +99,7 @@
             <%= f.label "木曜【退勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :thu_parttime_out, autofocus: true %>
+            <%= f.text_field :thu_parttime_out, autofocus: true, id:'registration_thu_parttime_out' %>
           </div>
         </div>
 
@@ -107,7 +108,7 @@
             <%= f.label "金曜【出勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :fri_parttime_in, autofocus: true%>
+            <%= f.text_field :fri_parttime_in, autofocus: true, id:'registration_fri_parttime_in' %>
           </div>
         </div>
 
@@ -116,7 +117,7 @@
             <%= f.label "金曜【退勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :fri_parttime_out, autofocus: true%>
+            <%= f.text_field :fri_parttime_out, autofocus: true, id:'registration_fri_parttime_out' %>
           </div>
         </div>
 
@@ -125,7 +126,7 @@
             <%= f.label "土曜【出勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :sat_parttime_in, autofocus: true%>
+            <%= f.text_field :sat_parttime_in, autofocus: true, id:'registration_sat_parttime_in' %>
           </div>
         </div>
 
@@ -134,7 +135,7 @@
             <%= f.label "土曜【退勤時間】"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field  :sat_parttime_out, autofocus: true%>
+            <%= f.text_field  :sat_parttime_out, autofocus: true, id:'registration_sat_parttime_out' %>
           </div>
         </div>
       </div>
@@ -147,7 +148,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class='pr-input'>
-            <%= f.text_field :pr_1, autofocus: true%>
+            <%= f.text_field :pr_1, autofocus: true, id:'registration_pr_1' %>
           </div>
         </div>
 
@@ -157,7 +158,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class='pr-input'>
-            <%= f.text_field :pr_2, autofocus: true%>
+            <%= f.text_field :pr_2, autofocus: true, id:'registration_pr_2' %>
           </div>
         </div>
 
@@ -167,7 +168,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div class='pr-input'>
-            <%= f.text_field :pr_3, autofocus: true%>
+            <%= f.text_field :pr_3, autofocus: true, id:'registration_pr_3' %>
           </div>
         </div>
         <%= f.submit '登録する', class:'btn' %>
