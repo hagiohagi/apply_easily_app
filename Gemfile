@@ -66,3 +66,8 @@ group :development do
   gem 'rubocop', require: false
   gem 'rails_12factor'
 end
+
+group :production do
+  # gem 'rails_12factor'
+  gem 'unicorn', '5.4.1'
+end
