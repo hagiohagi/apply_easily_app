@@ -61,6 +61,8 @@ gem 'factory_bot_rails'
 gem 'faker'
 gem 'active_hash'
 gem 'rails-i18n'
+gem "aws-sdk-s3", require: false
+
 
 group :development do
   gem 'rubocop', require: false

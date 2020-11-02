@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: apply_easily_app_production
-  username: apply_easily_app
-  password: <%= ENV['APPLY_EASILY_APP_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
