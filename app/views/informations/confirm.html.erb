@@ -18,7 +18,7 @@
         <tr>
           <th class="detail-user">証明写真(顔がはっきりと見えるもの・画像加工不可)
           </th>
-          <td class="detail-value"><%= @user.image.variant(resize: '100x100') if @user.image.attached?%></td>
+          <td class="detail-value"><%= image_tag @user.image.variant(resize: '100x100') if @user.image.attached?%></td>
         </tr>
         <tr>
           <th class="detail-user">氏名

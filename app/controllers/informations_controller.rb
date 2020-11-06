@@ -24,6 +24,7 @@ class InformationsController < ApplicationController
   end
 
   def confirm
+    @user.image.save if @user.image.attached?
     @user = User.new(
       firstname: session[:firstname],
       lastname: session[:lastname],
@@ -107,7 +108,6 @@ class InformationsController < ApplicationController
 
   def done
     sign_in User.find(session[:id]) unless user_signed_in?
-    session[:id].clear
     session[:firstname].clear
     session[:lastname].clear
     session[:firstname_kana].clear
@@ -183,6 +183,7 @@ class InformationsController < ApplicationController
       station: 'shinjyku',
       spouse: 'あり'
     )
+    # binding.pry
     # インスタンスにバリデーションをかけ、通らなければ1step目のページを再度表示する
     render '/informations/step1' unless @user.valid?(:save_to_session)
   end
