@@ -3,6 +3,7 @@ require 'rails_helper'
 describe User do
   before do
     @user = FactoryBot.build(:user)
+    @user.image = fixture_file_upload("/files/test_image.png")
   end
 
   describe 'ユーザー新規登録' do

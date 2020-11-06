@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :user do
-    image                 { Faker::File.file_name(dir: 'path/to') }
     firstname             { '田中' }
     lastname              { '太郎' }
     firstname_kana        { 'たなか' }

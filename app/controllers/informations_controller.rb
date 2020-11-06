@@ -107,6 +107,36 @@ class InformationsController < ApplicationController
 
   def done
     sign_in User.find(session[:id]) unless user_signed_in?
+    session[:id].clear
+    session[:firstname].clear
+    session[:lastname].clear
+    session[:firstname_kana].clear
+    session[:lastname_kana].clear
+    session[:email].clear
+    session[:sex].clear
+    session[:password].clear
+    session[:password_confirmation].clear
+    session[:birth_day].clear
+    session[:phone_number].clear
+    session[:postal_code].clear
+    session[:prefecture_id].clear
+    session[:city].clear
+    session[:building].clear
+    session[:highschool].clear
+    session[:h_admission].clear
+    session[:h_graduate].clear
+    session[:univercity].clear
+    session[:u_admission].clear
+    session[:u_graduate].clear
+    session[:job_experience].clear
+    session[:qualification_1].clear
+    session[:qualification_2].clear
+    session[:qualification_3].clear
+    session[:q_year_1].clear
+    session[:q_year_2].clear
+    session[:q_year_3].clear
+    session[:station].clear
+    session[:spouse].clear
   end
 
   def save_to_session

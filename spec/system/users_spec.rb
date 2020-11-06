@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'ユーザー新規登録', type: :system do
   before do
     @user = FactoryBot.build(:user)
+    @user.image = fixture_file_upload("/files/test_image.png")
   end
 
   context 'ユーザー新規登録ができるとき' do
@@ -14,7 +15,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       # ログインページへ移動する
       visit step1_informations_path
       # ユーザー情報を入力する
-
+      fixture_file_upload '/files/test_image.png'
       fill_in 'registration_firstname', with: @user.firstname
       fill_in 'registration_lastname', with: @user.lastname
       fill_in 'registration_firstname_kana', with: @user.firstname_kana
