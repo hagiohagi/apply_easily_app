@@ -34,26 +34,45 @@ address: hagichan@gmail.com
 password: chan4444  
   
 # ローカルでの動作方法  
-
+$ git clone https://github.com/hagiohagi/apply_easily_app  
+$ cd apply_easily_app  
+$ bundle install  
+$ rails db:create  
+$ rails db:migrate  
+  
+・サーバーの起動  
+$ rails s  
+  http://localhost:3000  
+  
+・単体テストコードの実施  
+$ bundle exec rspec spec/models/owner_spec.rb  
+$ bundle exec rspec spec/models/user_spec.rb  
+$ bundle exec rspec spec/models/parttime_spec.rb  
+  
+・結合テストコードの実施  
+$ bundle exec rspec spec/system/owners_spec.rb  
+$ bundle exec rspec spec/system/users_spec.rb  
+$ bundle exec rspec spec/system/parttimes_spec.rb
 
 # 要件  
-レスポンシブデザインの導入  
-deviseによるユーザーログイン機能(adminテーブル・userテーブル)  
-ウィザード形式を用いた複数ページにわたるデータ入力機能  
-ユーザー登録の確認画面と完了画面の導入  
-ActiveStorageによる画像保存機能
-エラーメッセージの日本語化
-AWSのEC2インスタンスを関連づけたデプロイ
-Capistranoを用いた自動デプロイ機能
-各テーブルの登録に関する単体テストコード・結合テストコードの作成
+・レスポンシブデザインの導入  
+・deviseによるユーザーログイン機能(adminテーブル・userテーブル)  
+・ウィザード形式を用いた複数ページにわたるデータ入力機能  
+・ユーザー登録の確認画面と完了画面の導入  
+・ActiveStorageによる画像保存機能
+・エラーメッセージの日本語化
+・AWSのEC2インスタンスを関連づけたデプロイ
+・Capistranoを用いた自動デプロイ機能
+・各テーブルの登録に関する単体テストコード・結合テストコードの作成
 
 # 今後の実装予定
-・複数店舗のエントリーができることを想定し、シフト入力と質問のエントリーを複数のテーブルで用意する。
+・複数店舗のエントリーができることを想定し、シフト入力と質問のエントリーを複数のテーブルで用意する。  
 ・検索機能を実装し、エントリーした応募者情報を特定しやすくする。
 
 # データベース
 
-## ER図
+## ER図  
+<img width="326" alt="ER図" src="https://user-images.githubusercontent.com/68381420/98444840-6c6ebc80-2157-11eb-868a-1282a7a56e93.png">  
 
 
 ## owner テーブル
