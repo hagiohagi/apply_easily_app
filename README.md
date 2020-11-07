@@ -1,9 +1,9 @@
-## README
+# README
 
-## アプリケーション名  
+# アプリケーション名  
 かんたん履歴書登録(apply_easily_app)  
 
-## 概要  
+# 概要  
 個人経営の店舗を想定して、アルバイト募集を効率化することを目的に作成しました。  
 紙媒体の履歴書のデータをweb入力できるようにすることで、  
 応募者が書類を書く手間を省いたり、採用者が応募者のデータを管理できやすくなると考えました。  
@@ -18,14 +18,14 @@
 次にシフト希望とかんたんな質問に答えてもらうというエントリーをしてもらう形にしました。  
 このアプリケーションの更なる展開として、同じユーザー情報から複数の店舗へ応募できる機能を搭載したいと考えております。  
   
-## URL  
+# URL  
 github  
 https://github.com/hagiohagi/apply_easily_app  
-  
-## テスト用アカウント  
 認証コード  
 ID: admin  
 Pass: 2222  
+  
+# テスト用アカウント  
 テストユーザー  
 管理者用アカウント  
 firstname: 萩原  
@@ -33,10 +33,10 @@ lastname: 誠人
 address: hagichan@gmail.com  
 password: chan4444  
   
-## ローカルでの動作方法  
+# ローカルでの動作方法  
 
 
-## 要件  
+# 要件  
 レスポンシブデザインの導入  
 deviseによるユーザーログイン機能(adminテーブル・userテーブル)  
 ウィザード形式を用いた複数ページにわたるデータ入力機能  
@@ -47,17 +47,16 @@ AWSのEC2インスタンスを関連づけたデプロイ
 Capistranoを用いた自動デプロイ機能
 各テーブルの登録に関する単体テストコード・結合テストコードの作成
 
-## 今後の実装予定
+# 今後の実装予定
 ・複数店舗のエントリーができることを想定し、シフト入力と質問のエントリーを複数のテーブルで用意する。
 ・検索機能を実装し、エントリーした応募者情報を特定しやすくする。
 
-## データベース
+# データベース
 
-# ER図
+## ER図
 
 
-
-# owner テーブル
+## owner テーブル
 
 | Column    | Type   | Options     |
 | ------    | ------ | ----------- |
@@ -66,7 +65,7 @@ Capistranoを用いた自動デプロイ機能
 | email     | string | null: false |
 | password  | string | null: false |
 
-# users テーブル
+## users テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
@@ -98,10 +97,10 @@ Capistranoを用いた自動デプロイ機能
 | station          | string     |                                |
 | spouse           | text       | null: false                    |
 
-# Association
+## Association
   has_one: parttime
 
-# parttimes テーブル
+## parttimes テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
@@ -124,5 +123,5 @@ Capistranoを用いた自動デプロイ機能
 | pr_2             | string     | null: false                    |  
 | pr_2             | string     | null: false                    |  
   
-# Association
+## Association
   belongs_to: user
