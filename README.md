@@ -20,6 +20,7 @@
   
 #URL  
 github  
+https://github.com/hagiohagi/apply_easily_app  
   
 #テスト用アカウント  
 認証コード  
@@ -100,26 +101,26 @@ Capistranoを用いた自動デプロイ機能
 # Association
   has_one: parttime
 
-# parttimes テーブル
-
-| user_id          | references | null: false, foreign_key: true |
-| sun_parttime_in  | integer    |                                |
-| sun_parttime_out | integer    |                                |
-| mon_parttime_in  | integer    |                                |
-| mon_parttime_out | integer    |                                |
-| tue_parttime_in  | integer    |                                |
-| tue_parttime_out | integer    |                                |
-| wed_parttime_in  | integer    |                                |
-| wed_parttime_out | integer    |                                |
-| thu_parttime_in  | integer    |                                |
-| thu_parttime_out | integer    |                                |
-| fri_parttime_in  | integer    |                                |
-| fri_parttime_out | integer    |                                |
-| sat_parttime_in  | integer    |                                |
-| sat_parttime_out | integer    |                                |
-| pr_1             | string     | null: false                    |
-| pr_2             | string     | null: false                    |
-| pr_2             | string     | null: false                    |
-
+# parttimes テーブル  
+  
+| user_id          | references | null: false, foreign_key: true |  
+| sun_parttime_in  | integer    |                                |  
+| sun_parttime_out | integer    |                                |  
+| mon_parttime_in  | integer    |                                |  
+| mon_parttime_out | integer    |                                |  
+| tue_parttime_in  | integer    |                                |  
+| tue_parttime_out | integer    |                                |  
+| wed_parttime_in  | integer    |                                |  
+| wed_parttime_out | integer    |                                |  
+| thu_parttime_in  | integer    |                                |  
+| thu_parttime_out | integer    |                                |  
+| fri_parttime_in  | integer    |                                |  
+| fri_parttime_out | integer    |                                |  
+| sat_parttime_in  | integer    |                                |  
+| sat_parttime_out | integer    |                                |  
+| pr_1             | string     | null: false                    |  
+| pr_2             | string     | null: false                    |  
+| pr_2             | string     | null: false                    |  
+  
 # Association
   belongs_to: user
