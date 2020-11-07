@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'ユーザー新規登録', type: :system do
   before do
     @user = FactoryBot.build(:user)
-    @user.image = fixture_file_upload("/files/test_image.png")
+    @user.image = fixture_file_upload('/files/test_image.png')
   end
 
   context 'ユーザー新規登録ができるとき' do

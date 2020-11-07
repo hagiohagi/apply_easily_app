@@ -4,7 +4,7 @@ RSpec.describe '面接データ登録', type: :system do
   before do
     @parttime = FactoryBot.build(:parttime)
     @user = FactoryBot.build(:user)
-    @user.image = fixture_file_upload("/files/test_image.jpg")
+    @user.image = fixture_file_upload('/files/test_image.jpg')
   end
   context 'データ登録ができるとき' do
     it 'ユーザー登録を経由してデータを登録する' do
