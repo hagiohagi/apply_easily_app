@@ -61,6 +61,7 @@ $ bundle exec rspec spec/system/parttimes_spec.rb
 ・ユーザー登録の確認画面と完了画面の導入  
 ・ActiveStorageによる画像保存機能  
 ・エラーメッセージの日本語化  
+・Ciderによる自動コードレビュー  
 ・AWSのEC2インスタンスを関連づけたデプロイ  
 ・Capistranoを用いた自動デプロイ機能  
 ・各テーブルの登録に関する単体テストコード・結合テストコードの作成  
