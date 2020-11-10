@@ -31,6 +31,8 @@
 # URL  
 github  
 https://github.com/hagiohagi/apply_easily_app  
+Elastic IP
+13.112.254.248  
 認証コード  
 ID: admin  
 Pass: 2222  
