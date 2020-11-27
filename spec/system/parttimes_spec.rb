@@ -1,5 +1,11 @@
 require 'rails_helper'
 
+def basic_pass(path)
+  username = ENV['BASIC_AUTH_USER'] 
+  password = ENV['BASIC_AUTH_PASSWORD']
+  visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
+end
+
 RSpec.describe '面接データ登録', type: :system do
   before do
     @parttime = FactoryBot.build(:parttime)
@@ -8,6 +14,8 @@ RSpec.describe '面接データ登録', type: :system do
   end
   context 'データ登録ができるとき' do
     it 'ユーザー登録を経由してデータを登録する' do
+      # Basic認証を通過する
+      basic_pass root_path
       # トップページに移動する
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
@@ -89,6 +97,8 @@ RSpec.describe '面接データ登録', type: :system do
 
   context 'データ登録ができないとき' do
     it 'ユーザー登録を経由してデータを登録するも必要事項が記入できていないと登録できない' do
+      # Basic認証を通過する
+      basic_pass root_path
       # トップページに移動する
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する

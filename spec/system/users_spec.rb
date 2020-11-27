@@ -1,5 +1,11 @@
 require 'rails_helper'
 
+def basic_pass(path)
+  username = ENV['BASIC_AUTH_USER'] 
+  password = ENV['BASIC_AUTH_PASSWORD']
+  visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
+end
+
 RSpec.describe 'ユーザー新規登録', type: :system do
   before do
     @user = FactoryBot.build(:user)
@@ -8,6 +14,8 @@ RSpec.describe 'ユーザー新規登録', type: :system do
 
   context 'ユーザー新規登録ができるとき' do
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
+      # Basic認証を通過する
+      basic_pass root_path
       # トップページに移動する
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
@@ -62,6 +70,8 @@ RSpec.describe 'ユーザー新規登録', type: :system do
     end
 
     it '正しい情報を入力すれば最終確認画面で修正するを選択する事で入力画面に戻ることができる' do
+      # Basic認証を通過する
+      basic_pass root_path
       # トップページに移動する
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
@@ -117,6 +127,8 @@ RSpec.describe 'ユーザー新規登録', type: :system do
 
   context 'ユーザー新規登録ができないとき' do
     it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる(1ページ目)' do
+      # Basic認証を通過する
+      basic_pass root_path
       # トップページに移動する
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
@@ -142,6 +154,8 @@ RSpec.describe 'ユーザー新規登録', type: :system do
     end
 
     it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる(2ページ目)' do
+      # Basic認証を通過する
+      basic_pass root_path
       # トップページに移動する
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
@@ -175,6 +189,8 @@ RSpec.describe 'ユーザー新規登録', type: :system do
     end
 
     it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる(3ページ目)' do
+      # Basic認証を通過する
+      basic_pass root_path
       # トップページに移動する
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する

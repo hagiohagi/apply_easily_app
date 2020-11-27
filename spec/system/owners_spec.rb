@@ -1,11 +1,19 @@
 require 'rails_helper'
 
+def basic_pass(path)
+  username = ENV['BASIC_AUTH_USER'] 
+  password = ENV['BASIC_AUTH_PASSWORD']
+  visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
+end
+
 RSpec.describe '管理人新規登録', type: :system do
   before do
     @owner = FactoryBot.build(:owner)
   end
   context 'ユーザー新規登録ができるとき' do
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
+      # Basic認証を通過する
+      basic_pass root_path
       # トップページに移動する
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
@@ -13,7 +21,7 @@ RSpec.describe '管理人新規登録', type: :system do
       # ログインページへ移動する
       visit new_owner_session_path
       # 新規登録ページに遷移するボタンがあることを確認する
-      expect(page).to have_content('新規登録')
+      expect(page).to have_content('Forgot your password?')
       # 新規登録ページへ移動する
       visit new_owner_registration_path
       # ユーザー情報を入力する
@@ -38,6 +46,8 @@ RSpec.describe '管理人新規登録', type: :system do
   end
   context 'ユーザー新規登録ができないとき' do
     it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる' do
+      # Basic認証を通過する
+      basic_pass root_path
       # トップページに移動する
       visit root_path
       # トップページにサインアップページへ遷移するボタンがあることを確認する
@@ -45,7 +55,7 @@ RSpec.describe '管理人新規登録', type: :system do
       # ログインページへ移動する
       visit new_owner_session_path
       # 新規登録ページに遷移するボタンがあることを確認する
-      expect(page).to have_content('新規登録')
+      expect(page).to have_content('Forgot your password?')
       # 新規登録ページへ移動する
       visit new_owner_registration_path
       # ユーザー情報を入力する
@@ -70,6 +80,8 @@ RSpec.describe 'ログイン', type: :system do
   end
   context 'ログインができるとき' do
     it '保存されているユーザーの情報と合致すればログインができる' do
+      # Basic認証を通過する
+      basic_pass root_path
       # トップページに移動する
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
@@ -96,6 +108,8 @@ RSpec.describe 'ログイン', type: :system do
   end
   context 'ログインができないとき' do
     it '保存されているユーザーの情報と合致しないとログインができない' do
+      # Basic認証を通過する
+      basic_pass root_path
       # トップページに移動する
       visit root_path
       # トップページにログインページへ遷移するボタンがあることを確認する
