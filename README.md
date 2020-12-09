@@ -3,6 +3,9 @@
 # アプリケーション名  
 かんたん履歴書登録(apply_easily_app)  
 
+![Alt text](https://i.gyazo.com/0e7f75dadc4d51b2984bf3ced8c0fa10.png)
+![Alt text](https://i.gyazo.com/f786a36c7a5cbad585e4f2d59f7451c3.png)
+
 # 概要  
   
 アルバイト採用担当者が、応募者のプロフィールを閲覧することができるアプリケーションです。  
@@ -18,27 +21,35 @@
   
 # 工夫点  
   
-・ウィザード形式でページを整理する  
+## ・ウィザード形式でページを整理する  
 応募にあたっての入力項目が多いので、ウィザード形式を導入して、  
 名前→住所→経歴と入力内容ごとにページが遷移するようにして、視認性を高めました。  
+
+![Alt text](https://i.gyazo.com/255bc703dd5d233db4e6adbe3a951277.png)
+![Alt text](https://i.gyazo.com/a667edb7bb1f88c3fce2e36cf227cfcd.png)
+![Alt text](https://i.gyazo.com/c03f478aeda801138fbf714962ed9d2c.png)
+
+## ・登録確認画面と登録完了画面を実装する
+railsのdeviseの初期設定では、入力 → 完了(画面表示なし)で終わってしまうところを
+コントローラを工夫して、入力 → 確認画面 → 完了画面と画面が見やすいようにページ推移を工夫しました。
   
-・ユーザー登録とエントリーを分ける  
+## ・ユーザー登録とエントリーを分ける  
 昨今の転職サイトで「ユーザー登録→企業ごとにエントリーする」という手順が多かったので、  
 応募の手順を、まずユーザー（名前から学歴まで）情報を登録してもらってから、  
 次にシフト希望とかんたんな質問に答えてもらうというエントリーをしてもらう形にしました。  
 このアプリケーションの更なる展開として、同じユーザー情報から複数の店舗へ応募できる機能を搭載したいと考えております。  
   
 # URL  
-github  
+## github  
 https://github.com/hagiohagi/apply_easily_app  
-Elastic IP  
+## Elastic IP  
 13.112.254.248  
-認証コード  
+## 認証コード  
 ID: admin  
 Pass: 2222  
   
 # テスト用アカウント  
-テストユーザー  
+## テストユーザー  
 管理者用アカウント  
 firstname: 萩原  
 lastname: 誠人  
@@ -52,16 +63,16 @@ $ bundle install
 $ rails db:create  
 $ rails db:migrate  
   
-・サーバーの起動  
+## ・サーバーの起動  
 $ rails s  
   http://localhost:3000  
   
-・単体テストコードの実施  
+## ・単体テストコードの実施  
 $ bundle exec rspec spec/models/owner_spec.rb  
 $ bundle exec rspec spec/models/user_spec.rb  
 $ bundle exec rspec spec/models/parttime_spec.rb  
   
-・結合テストコードの実施  
+## ・結合テストコードの実施  
 $ bundle exec rspec spec/system/owners_spec.rb  
 $ bundle exec rspec spec/system/users_spec.rb  
 $ bundle exec rspec spec/system/parttimes_spec.rb
