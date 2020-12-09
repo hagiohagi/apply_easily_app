@@ -1,7 +1,7 @@
 # README
 
 # アプリケーション名  
-かんたん履歴書登録(apply_easily_app)  
+### かんたん履歴書登録(apply_easily_app)  
 
 ![Alt text](https://i.gyazo.com/0e7f75dadc4d51b2984bf3ced8c0fa10.png)
 ![Alt text](https://i.gyazo.com/f786a36c7a5cbad585e4f2d59f7451c3.png)
