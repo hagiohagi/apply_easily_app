@@ -15,7 +15,7 @@ FactoryBot.define do
     sat_parttime_in { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
     sat_parttime_out { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
     pr_1 { 'あ' }
-    pr_2 { 'い'}
+    pr_2 { 'い' }
     pr_3 {'う'}
   end
 end
