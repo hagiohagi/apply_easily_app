@@ -47,6 +47,7 @@ railsのdeviseの初期設定では、入力 → 完了(画面表示なし)で�
 https://github.com/hagiohagi/apply_easily_app  
 ## Elastic IP  
 13.112.254.248  
+※現在はEC2サーバを停止しております。
 ## 認証コード  
 ID: admin  
 Pass: 2222  
